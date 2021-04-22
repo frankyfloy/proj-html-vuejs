@@ -13,6 +13,7 @@ var store = new Vuex.Store({
   state: {
     event: false,
     headerData: {
+      background: './assets/img/home-page-slider.jpg',
       title: 'make a difference',
       lead: ['as long as poverty, injustice & inequality persist, none of us can truly rest'],
       buttons: [btn1 = {
@@ -62,6 +63,9 @@ var store = new Vuex.Store({
 // nav
 
 Vue.component("navbar-vue", {
+  // data: function() {
+  //     scrollPosition: null
+  // },
   computed: {
     navbarData: function (_navbarData) {
       function navbarData() {
@@ -79,12 +83,19 @@ Vue.component("navbar-vue", {
     })
   },
   methods: {
+    //  updateScroll() {
+    //     this.scrollPosition = window.scrollY
+    // },
     checkType: function checkType(type) {
       return type;
     }
   },
+  // mounted() {
+  //     window.addEventListener('scroll', this.updateScroll);
+  // },
   //Conditional construct for html element type, render the corresponding element
-  template: "\n    <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">\n        <a class=\"navbar-brand\" :href=\"navbarData.linkHome\">\n            <img :src=\"navbarData.logoUrl\" alt=\"logo\">\n        </a>\n\n        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n        <span class=\"navbar-toggler-icon\"></span>\n        </button>\n\n        <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n            <ul class=\"navbar-nav mr-auto\">\n\n                <li v-for=\"(item,i) in navbarData.navItems\"\n                    :class=\"checkType(item.type)\"\n                    class=\"nav-item active\">\n\n                    <template v-if=\"item.type === 'link'\">\n                        <a  class=\"nav-link\" :href=\"item.link\"> {{ item.text }} <span class=\"sr-only\"> {{item.text}} </span></a>\n                    </template>\n\n\n                    <template v-else-if=\"item.type === 'dropdown'\">\n                        <a  class=\"nav-link dropdown-toggle\" :href=\"item.link\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n                        {{ item.text }}\n                        </a>\n                        <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">\n                            <a class=\"dropdown-item\" href=\"#\">Action</a>\n                            <a class=\"dropdown-item\" href=\"#\">Another action</a>\n                            <div class=\"dropdown-divider\"></div>\n                            <a class=\"dropdown-item\" href=\"#\">Something else here</a>\n                        </div>\n                    </template>\n\n\n                    <template v-else-if=\"item.type === 'btnLink'\">\n                        <a class=\"btn btn-lg\" :href=\"item.link\" role=\"button\">\n                            {{ item.text }}\n                        </a>\n                    </template>\n                </li>\n\n            </ul>\n        </div>\n    </nav>\n    "
+  // :class="{change_color: scrollPosition > 50}
+  template: "\n    <nav\n        class=\"navbar navbar-expand-lg navbar-light bg-light\">\n        <a class=\"navbar-brand\" :href=\"navbarData.linkHome\">\n            <img :src=\"navbarData.logoUrl\" alt=\"logo\">\n        </a>\n\n        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n        <span class=\"navbar-toggler-icon\"></span>\n        </button>\n\n        <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n            <ul class=\"navbar-nav mr-auto\">\n\n                <li v-for=\"(item,i) in navbarData.navItems\"\n                    :class=\"checkType(item.type)\"\n                    class=\"nav-item active\">\n\n                    <template v-if=\"item.type === 'link'\">\n                        <a  class=\"nav-link\" :href=\"item.link\"> {{ item.text }} <span class=\"sr-only\"> {{item.text}} </span></a>\n                    </template>\n\n\n                    <template v-else-if=\"item.type === 'dropdown'\">\n                        <a  class=\"nav-link dropdown-toggle\" :href=\"item.link\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n                        {{ item.text }}\n                        </a>\n                        <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">\n                            <a class=\"dropdown-item\" href=\"#\">Action</a>\n                            <a class=\"dropdown-item\" href=\"#\">Another action</a>\n                            <div class=\"dropdown-divider\"></div>\n                            <a class=\"dropdown-item\" href=\"#\">Something else here</a>\n                        </div>\n                    </template>\n\n\n                    <template v-else-if=\"item.type === 'btnLink'\">\n                        <a class=\"btn btn-lg\" :href=\"item.link\" role=\"button\">\n                            {{ item.text }}\n                        </a>\n                    </template>\n                </li>\n\n            </ul>\n        </div>\n    </nav>\n    "
 }); // Jumbotron
 
 Vue.component("jumbo-vue", {
@@ -104,7 +115,7 @@ Vue.component("jumbo-vue", {
       console.log(headerData);
     })
   },
-  template: "\n    <div class=\"jumbotron jumbotron-fluid\">\n      <div class=\"container\">\n        <h1 class=\"title\"> {{ headerData.title }} </h1>\n\n        <p v-for=\"(lead,i) in headerData.lead\"\n            :key=\"'lead' + i\"\n            :class=\"'lead'+ (i + 1)\">\n            {{ lead }}\n        </p>\n        <div class=\"btn-group mt-3\" role=\"group\" aria-label=\"donare\">\n            <div v-for=\"(btn,i) in headerData.buttons\"\n                :key=\"'btn'+ i\"\n                class=\"cont-btn\">\n                <a :class=\"'btn'+ (i + 1)\"\n                    class=\"btn btn-lg\" :href=\"btn.link\" role=\"button\">\n                    {{ btn.text }}\n                </a>\n            </div>\n        </div>\n      </div>\n    </div>\n    "
+  template: "\n    <div class=\"jumbotron jumbotron-fluid\">\n\n        <img :src=\"headerData.background\" alt=\"background-image\">\n\n        <div class=\"container\">\n            <h1 class=\"title\"> {{ headerData.title }} </h1>\n            <p v-for=\"(lead,i) in headerData.lead\"\n                :key=\"'lead' + i\"\n                :class=\"'lead'+ (i + 1)\">\n                {{ lead }}\n            </p>\n            <div class=\"btn-group mt-3\" role=\"group\" aria-label=\"donare\">\n                <div v-for=\"(btn,i) in headerData.buttons\"\n                    :key=\"'btn'+ i\"\n                    class=\"cont-btn\">\n                    <a :class=\"'btn'+ (i + 1)\"\n                        class=\"btn btn-lg\" :href=\"btn.link\" role=\"button\">\n                        {{ btn.text }}\n                    </a>\n                </div>\n            </div>\n        </div>\n    </div>\n    "
 }); // ****** ROOT *********
 
 var app = new Vue({

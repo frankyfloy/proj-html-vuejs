@@ -1,14 +1,16 @@
 nav.navbar{
     @include NavProperty;
-    @include position(fixed,0, 0,0);
+    @include position(fixed,0, 0,10);
     @include hgt-wdt(150px,100%);
     justify-content: space-between;
     @include px(100px);
+
 
     .navbar-brand{
         img{
             @include hgt-wdt(70px,345px);
         }
+
     }
 
     .navbar-collapse{

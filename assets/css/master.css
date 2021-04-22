@@ -5,6 +5,46 @@
   padding: 0;
 }
 
+body {
+  font: 12px Arial, "Montserrat", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Montserrat", sans-serif, serif;
+}
+
+h1 {
+  font-size: 200%;
+}
+
+h2 {
+  font-size: 170%;
+}
+
+h3 {
+  font-size: 140%;
+}
+
+h4 {
+  font-size: 120%;
+}
+
+h5 {
+  font-size: 100%;
+}
+
+h6 {
+  font-size: 80%;
+}
+
+p {
+  line-height: 1.5;
+}
+
+.change_color {
+  background-color: red;
+}
+
 .mb-0 {
   margin-bottom: 0;
 }
@@ -21,7 +61,7 @@ nav.navbar {
   text-transform: capitalize;
   width: 100%;
   position: fixed;
-  z-index: 0;
+  z-index: 10;
   0: 0;
   0: 0;
   height: 150px;
@@ -60,16 +100,8 @@ nav.navbar .navbar-collapse .btn:hover {
 .jumbotron {
   height: 100vh;
   width: 100vw;
-  background-image: url("../img/home-page-slider.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-position: center;
-  background-color: rgba(0, 0, 0, 0.9);
   position: fixed;
-  z-index: -1;
+  z-index: 1;
   0: 0;
   0: 0;
   margin: 0;
@@ -79,6 +111,14 @@ nav.navbar .navbar-collapse .btn:hover {
   display: flex;
   align-items: center;
   color: #ffffff;
+}
+.jumbotron img[alt=background-image] {
+  width: 100%;
+  height: 100vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  z-index: -5;
 }
 .jumbotron .container {
   text-align: center;
@@ -122,21 +162,23 @@ nav.navbar .navbar-collapse .btn:hover {
 .jumbotron .container .btn-group .cont-btn .btn2:hover {
   border: 2px solid #ffffff;
   color: #ffffff;
+}
+
+header {
+  height: 100vh;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  background-color: white;
 }
 
 .jumbotron {
   height: 100vh;
   width: 100vw;
-  background-image: url("../img/home-page-slider.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-position: center;
-  background-color: rgba(0, 0, 0, 0.9);
   position: fixed;
-  z-index: -1;
+  z-index: 1;
   0: 0;
   0: 0;
   margin: 0;
@@ -146,6 +188,14 @@ nav.navbar .navbar-collapse .btn:hover {
   display: flex;
   align-items: center;
   color: #ffffff;
+}
+.jumbotron img[alt=background-image] {
+  width: 100%;
+  height: 100vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  z-index: -5;
 }
 .jumbotron .container {
   text-align: center;
@@ -189,8 +239,4 @@ nav.navbar .navbar-collapse .btn:hover {
 .jumbotron .container .btn-group .cont-btn .btn2:hover {
   border: 2px solid #ffffff;
   color: #ffffff;
-}
-
-body {
-  font-family: "Montserrat", sans-serif;
 }

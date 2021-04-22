@@ -5,6 +5,7 @@ const store = new Vuex.Store({
     state: {
         event: false,
         headerData:{
+            background: './assets/img/home-page-slider.jpg',
             title: 'make a difference',
             lead: ['as long as poverty, injustice & inequality persist, none of us can truly rest'],
             buttons:[
@@ -66,6 +67,9 @@ const store = new Vuex.Store({
 // Header
 // nav
 Vue.component("navbar-vue", {
+    // data: function() {
+    //     scrollPosition: null
+    // },
     computed: {
         navbarData(){
             return store.state.navbarData
@@ -74,14 +78,24 @@ Vue.component("navbar-vue", {
     },
 
     methods: {
+       //  updateScroll() {
+       //     this.scrollPosition = window.scrollY
+       // },
         checkType(type){
             return type;
         }
     },
+    // mounted() {
+    //     window.addEventListener('scroll', this.updateScroll);
+    // },
+
+
 
     //Conditional construct for html element type, render the corresponding element
+    // :class="{change_color: scrollPosition > 50}
     template: `
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav
+        class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" :href="navbarData.linkHome">
             <img :src="navbarData.logoUrl" alt="logo">
         </a>
@@ -129,36 +143,39 @@ Vue.component("navbar-vue", {
 })
 
 
-
 // Jumbotron
 Vue.component("jumbo-vue", {
+
     computed: {
         headerData(){
             return store.state.headerData
             console.log(headerData);
-        }
+        },
     },
+
     template: `
     <div class="jumbotron jumbotron-fluid">
-      <div class="container">
-        <h1 class="title"> {{ headerData.title }} </h1>
 
-        <p v-for="(lead,i) in headerData.lead"
-            :key="'lead' + i"
-            :class="'lead'+ (i + 1)">
-            {{ lead }}
-        </p>
-        <div class="btn-group mt-3" role="group" aria-label="donare">
-            <div v-for="(btn,i) in headerData.buttons"
-                :key="'btn'+ i"
-                class="cont-btn">
-                <a :class="'btn'+ (i + 1)"
-                    class="btn btn-lg" :href="btn.link" role="button">
-                    {{ btn.text }}
-                </a>
+        <img :src="headerData.background" alt="background-image">
+
+        <div class="container">
+            <h1 class="title"> {{ headerData.title }} </h1>
+            <p v-for="(lead,i) in headerData.lead"
+                :key="'lead' + i"
+                :class="'lead'+ (i + 1)">
+                {{ lead }}
+            </p>
+            <div class="btn-group mt-3" role="group" aria-label="donare">
+                <div v-for="(btn,i) in headerData.buttons"
+                    :key="'btn'+ i"
+                    class="cont-btn">
+                    <a :class="'btn'+ (i + 1)"
+                        class="btn btn-lg" :href="btn.link" role="button">
+                        {{ btn.text }}
+                    </a>
+                </div>
             </div>
         </div>
-      </div>
     </div>
     `
 })
@@ -172,7 +189,6 @@ var app = new Vue({
     // into all child components from the root component
     store,
     data: {
-
     },
 
     mounted:function () {

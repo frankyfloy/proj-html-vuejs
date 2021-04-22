@@ -1,13 +1,20 @@
 .jumbotron{
     @include hgt-wdt(100vh,100vw);
-    @include bg-img('../img/home-page-slider.jpg',no-repeat,cover);
-    background-position: center;
-    background-color: rgba(0, 0, 0, 0.9);
-    @include position(fixed,0, 0,-1);
+    // @include bg-img('../img/home-page-slider.jpg',no-repeat,cover);
+    @include position(fixed,0, 0,1);
     @include zeroing;
     display: flex;
     align-items: center;
     color: $white;
+
+
+    img[alt="background-image"]{
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+        position: absolute;
+        z-index: -5;
+    }
 
     .container{
 
