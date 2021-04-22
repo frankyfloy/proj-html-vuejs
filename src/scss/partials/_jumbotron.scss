@@ -1,0 +1,52 @@
+.jumbotron{
+    @include hgt-wdt(100vh,100vw);
+    @include bg-img('../img/home-page-slider.jpg',no-repeat,cover);
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.9);
+    @include position(fixed,0, 0,-1);
+    @include zeroing;
+    display: flex;
+    align-items: center;
+    color: $white;
+
+    .container{
+
+        text-align: center;
+
+        .title{
+            @include txt-Uppercase;
+            font-size: 4.5rem;
+            font-weight: 400;
+        }
+
+        .lead1{
+            @include txt-Capitalize-FirstChar;
+            letter-spacing: 1.3px;
+            font-size: 1.35rem;
+        }
+
+        .btn-group{
+            display: flex;
+            justify-content: center;
+            .cont-btn{
+                margin-top: 2rem;
+                .btn{
+                    border-radius: 0;
+                    padding: 0.5rem 2rem;
+                    margin: 0 15px;
+
+                }
+                .btn1{
+                    @include my-btn-nav($white);
+                    @include hoverBtn($goldenRod);
+                }
+
+                .btn2{
+                    @include my-btn-nav($goldenRod);
+                    @include hoverBtn($white);
+                }
+            }
+
+        }
+    }
+}

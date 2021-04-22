@@ -1,0 +1,42 @@
+nav.navbar{
+    @include NavProperty;
+    @include position(fixed,0, 0,0);
+    @include hgt-wdt(150px,100%);
+    justify-content: space-between;
+    @include px(100px);
+
+    .navbar-brand{
+        img{
+            @include hgt-wdt(70px,345px);
+        }
+    }
+
+    .navbar-collapse{
+        flex-grow: 0;
+        font-size: $fontSizeNav;
+
+        li.nav-item{
+            @include px(25px);
+            text-transform: uppercase;
+            &:hover a.nav-link{
+                color: $goldenRod;
+            }
+        }
+
+        .btn{
+            @include px(30px);
+            border-radius: 0;
+            font-size: $fontSizeNav;
+            background-color: $goldenRod;
+            color: $white;
+
+            &:hover{
+                background-color: #000000;
+            }
+        }
+    }
+
+    @media (max-width: $layout-breakpoint-small) {
+
+    }
+}

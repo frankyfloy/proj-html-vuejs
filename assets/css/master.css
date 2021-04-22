@@ -1,0 +1,196 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.mb-r3 {
+  margin-bottom: 3rem;
+}
+
+.btn-black {
+  background-color: #000000;
+}
+
+nav.navbar {
+  text-transform: capitalize;
+  width: 100%;
+  position: fixed;
+  z-index: 0;
+  0: 0;
+  0: 0;
+  height: 150px;
+  width: 100%;
+  justify-content: space-between;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+nav.navbar .navbar-brand img {
+  height: 70px;
+  width: 345px;
+}
+nav.navbar .navbar-collapse {
+  flex-grow: 0;
+  font-size: 16px;
+}
+nav.navbar .navbar-collapse li.nav-item {
+  padding-left: 25px;
+  padding-right: 25px;
+  text-transform: uppercase;
+}
+nav.navbar .navbar-collapse li.nav-item:hover a.nav-link {
+  color: #fcd66c;
+}
+nav.navbar .navbar-collapse .btn {
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 0;
+  font-size: 16px;
+  background-color: #fcd66c;
+  color: #ffffff;
+}
+nav.navbar .navbar-collapse .btn:hover {
+  background-color: #000000;
+}
+.jumbotron {
+  height: 100vh;
+  width: 100vw;
+  background-image: url("../img/home-page-slider.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  z-index: -1;
+  0: 0;
+  0: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+}
+.jumbotron .container {
+  text-align: center;
+}
+.jumbotron .container .title {
+  text-transform: uppercase;
+  font-size: 4.5rem;
+  font-weight: 400;
+}
+.jumbotron .container .lead1 {
+  letter-spacing: 1.3px;
+  font-size: 1.35rem;
+}
+.jumbotron .container .lead1:first-letter {
+  text-transform: uppercase;
+}
+.jumbotron .container .btn-group {
+  display: flex;
+  justify-content: center;
+}
+.jumbotron .container .btn-group .cont-btn {
+  margin-top: 2rem;
+}
+.jumbotron .container .btn-group .cont-btn .btn {
+  border-radius: 0;
+  padding: 0.5rem 2rem;
+  margin: 0 15px;
+}
+.jumbotron .container .btn-group .cont-btn .btn1 {
+  border: 2px solid #ffffff;
+  color: #ffffff;
+}
+.jumbotron .container .btn-group .cont-btn .btn1:hover {
+  border: 2px solid #fcd66c;
+  color: #fcd66c;
+}
+.jumbotron .container .btn-group .cont-btn .btn2 {
+  border: 2px solid #fcd66c;
+  color: #fcd66c;
+}
+.jumbotron .container .btn-group .cont-btn .btn2:hover {
+  border: 2px solid #ffffff;
+  color: #ffffff;
+}
+
+.jumbotron {
+  height: 100vh;
+  width: 100vw;
+  background-image: url("../img/home-page-slider.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  z-index: -1;
+  0: 0;
+  0: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+}
+.jumbotron .container {
+  text-align: center;
+}
+.jumbotron .container .title {
+  text-transform: uppercase;
+  font-size: 4.5rem;
+  font-weight: 400;
+}
+.jumbotron .container .lead1 {
+  letter-spacing: 1.3px;
+  font-size: 1.35rem;
+}
+.jumbotron .container .lead1:first-letter {
+  text-transform: uppercase;
+}
+.jumbotron .container .btn-group {
+  display: flex;
+  justify-content: center;
+}
+.jumbotron .container .btn-group .cont-btn {
+  margin-top: 2rem;
+}
+.jumbotron .container .btn-group .cont-btn .btn {
+  border-radius: 0;
+  padding: 0.5rem 2rem;
+  margin: 0 15px;
+}
+.jumbotron .container .btn-group .cont-btn .btn1 {
+  border: 2px solid #ffffff;
+  color: #ffffff;
+}
+.jumbotron .container .btn-group .cont-btn .btn1:hover {
+  border: 2px solid #fcd66c;
+  color: #fcd66c;
+}
+.jumbotron .container .btn-group .cont-btn .btn2 {
+  border: 2px solid #fcd66c;
+  color: #fcd66c;
+}
+.jumbotron .container .btn-group .cont-btn .btn2:hover {
+  border: 2px solid #ffffff;
+  color: #ffffff;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}

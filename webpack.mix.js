@@ -1,6 +1,9 @@
 // webpack.mix.js
 let mix = require('laravel-mix');
 
-mix.sass('src/master.scss', 'assets/').options({
+mix.js('src/js/main.js', 'js')
+.sass('src/scss/master.scss', 'css')
+.setPublicPath('assets')
+.options({
     processCssUrls: false
 });

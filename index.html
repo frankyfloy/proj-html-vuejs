@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="it">
     <head>
-        <title>painter</title>
+        <title>Avada-Charity</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -10,33 +10,20 @@
 
         <!-- Font style -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 
         <!-- Fontawesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
 
-        <link rel="stylesheet" href="assets/master.css">
-
+        <link rel="stylesheet" href="assets/css/master.css">
 
     </head>
     <body>
         <div id="root">
             <header>
-                <div class="container-fluid cont-nav">
-                    <div class="row">
-
-                    </div>
-                </div>
-
-                <div class="jumbotron jumbotron-fluid">
-
-                </div>
+                <navbar-vue></navbar-vue>
+                <jumbo-vue></jumbo-vue>
             </header>
-            <main>
-                <div class="container-fluid">
-
-                </div>
-            </main>
         </div>
 
         <!-- Optional JavaScript -->
@@ -49,11 +36,14 @@
 
         <!-- VUE CDN -->
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-
         <!-- Vuex -->
         <script src="https://unpkg.com/vuex@2.0.0"></script>
 
+        <!-- Promise -->
+        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.js"></script>
+
         <!-- Script js -->
-        <script src="main.js"></script>
+        <script src="assets/js/main.js"></script>
+
     </body>
 </html>
