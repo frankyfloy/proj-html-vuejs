@@ -2,4 +2,79 @@ main{
     position: relative;
     z-index: 1;
     background-color: white;
+
+
+    section#everyMomentCounts{
+
+        div[class^="col-"]:first-child{
+            padding: 0;
+
+            .card.everyMoment{
+                border: 0;
+                padding: 100px;
+                .card-title{
+                    @include py(20px);
+                    font-weight: 400;
+                    font-size: 36px;
+                }
+
+                .card-text{
+                    @include py(20px);
+                    font-size: 16px;
+                }
+
+                a.btn{
+                    @include py(10px);
+                    @include px(30px);
+                    color: $white;
+                    &:hover{
+
+                        background-color: $black;
+                    }
+                }
+            }
+        }
+
+        div[class^="col-"]:last-child{
+            padding: 0;
+
+            .card{
+                border: 0;
+                height: 100%;
+                background-image: url('../img/home-content-bg-1.jpg');
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+
+                .card-body{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    .card-data{
+                        text-align: center;
+                        height: 100px;
+                        display: flex;
+                        flex-direction: column;
+                        // flex-wrap: wrap;
+
+                        color: $white;
+
+                        i[class^="fa"]{
+                            font-size: 50px;
+
+                        }
+
+                        div.head-data{
+                            font-size: 24px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 1020px) {
+
+    }
 }

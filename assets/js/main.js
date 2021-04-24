@@ -12,6 +12,7 @@ Vue.config.devtools = true; // Store
 var store = new Vuex.Store({
   state: {
     event: false,
+    //Updated with the updateScroll() method in $app.methods.updateScroll()
     headerData: {
       background: './assets/img/home-page-slider.jpg',
       title: 'make a difference',
@@ -25,7 +26,16 @@ var store = new Vuex.Store({
       }]
     },
     navbarData: {
-      logoUrl: './assets/img/avada-charity-logo-retina.png',
+      logos: {
+        desktop: {
+          white: './assets/img/avada-charity-logo-retina.png',
+          colorated: './assets/img/avada-charity-mobile-logo-retina.png'
+        },
+        mobile: {
+          white: './assets/img/avada-charity-mobile-logo-low.png',
+          colorated: './assets/img/avada-charity-mobile-logo-retina.png'
+        }
+      },
       linkHome: 'https://avada.theme-fusion.com/charity/',
       navItems: [{
         type: 'link',
@@ -38,7 +48,26 @@ var store = new Vuex.Store({
       }, {
         type: 'dropdown',
         text: 'causes',
-        link: 'https://avada.theme-fusion.com/charity/causes/'
+        link: 'https://avada.theme-fusion.com/charity/causes/',
+        dropdownItems: [{
+          text: 'FAIR TRADE',
+          link: 'https://avada.theme-fusion.com/charity/portfolio-items/fair-trade/'
+        }, {
+          text: 'VACCINES',
+          link: 'https://avada.theme-fusion.com/charity/portfolio-items/farming/'
+        }, {
+          text: 'VACCINES',
+          link: 'https://avada.theme-fusion.com/charity/portfolio-items/vaccines/'
+        }, {
+          text: 'EDUCATION',
+          link: 'https://avada.theme-fusion.com/charity/portfolio-items/education/'
+        }, {
+          text: 'CLEAN WATER',
+          link: 'https://avada.theme-fusion.com/charity/portfolio-items/clean-water/'
+        }, {
+          text: 'SHELTER',
+          link: 'https://avada.theme-fusion.com/charity/portfolio-items/shelter/'
+        }]
       }, {
         type: 'link',
         text: 'journal',
@@ -57,15 +86,40 @@ var store = new Vuex.Store({
       } else {
         state.event = false;
       }
+    },
+    PAGE_ACTIVE: function PAGE_ACTIVE(state, item) {
+      state.pageActive = item;
+    }
+  },
+  actions: {
+    pageActive: function pageActive(_ref, page) {
+      var commit = _ref.commit;
+      commit('PAGE_ACTIVE', page);
+    }
+  },
+  getters: {
+    getPageActive: function getPageActive(state) {
+      return state.pageActive;
     }
   }
-}); // Header
+}); // ------------ HEADER
 // nav
 
 Vue.component("navbar-vue", {
-  // data: function() {
-  //     scrollPosition: null
-  // },
+  props: {
+    scroll_event: {
+      type: Number,
+      required: true
+    },
+    page_active: {
+      type: Object,
+      required: true
+    },
+    widht_screen: {
+      type: Number,
+      required: true
+    }
+  },
   computed: {
     navbarData: function (_navbarData) {
       function navbarData() {
@@ -80,22 +134,45 @@ Vue.component("navbar-vue", {
     }(function () {
       return store.state.navbarData;
       console.log(navbarData);
-    })
-  },
-  methods: {
-    //  updateScroll() {
-    //     this.scrollPosition = window.scrollY
-    // },
-    checkType: function checkType(type) {
-      return type;
+    }),
+    getPageActive: function getPageActive() {
+      return store.state.pageActive;
     }
   },
-  // mounted() {
-  //     window.addEventListener('scroll', this.updateScroll);
-  // },
-  //Conditional construct for html element type, render the corresponding element
-  // :class="{change_color: scrollPosition > 50}
-  template: "\n    <nav\n        class=\"navbar navbar-expand-lg navbar-light bg-light\">\n        <a class=\"navbar-brand\" :href=\"navbarData.linkHome\">\n            <img :src=\"navbarData.logoUrl\" alt=\"logo\">\n        </a>\n\n        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n        <span class=\"navbar-toggler-icon\"></span>\n        </button>\n\n        <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n            <ul class=\"navbar-nav mr-auto\">\n\n                <li v-for=\"(item,i) in navbarData.navItems\"\n                    :class=\"checkType(item.type)\"\n                    class=\"nav-item active\">\n\n                    <template v-if=\"item.type === 'link'\">\n                        <a  class=\"nav-link\" :href=\"item.link\"> {{ item.text }} <span class=\"sr-only\"> {{item.text}} </span></a>\n                    </template>\n\n\n                    <template v-else-if=\"item.type === 'dropdown'\">\n                        <a  class=\"nav-link dropdown-toggle\" :href=\"item.link\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n                        {{ item.text }}\n                        </a>\n                        <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">\n                            <a class=\"dropdown-item\" href=\"#\">Action</a>\n                            <a class=\"dropdown-item\" href=\"#\">Another action</a>\n                            <div class=\"dropdown-divider\"></div>\n                            <a class=\"dropdown-item\" href=\"#\">Something else here</a>\n                        </div>\n                    </template>\n\n\n                    <template v-else-if=\"item.type === 'btnLink'\">\n                        <a class=\"btn btn-lg\" :href=\"item.link\" role=\"button\">\n                            {{ item.text }}\n                        </a>\n                    </template>\n                </li>\n\n            </ul>\n        </div>\n    </nav>\n    "
+  methods: {
+    checkType: function checkType(type) {
+      return type;
+    },
+    pageActive: function pageActive(item) {
+      this.$store.dispatch('pageActive', item);
+
+      if (item.text.toLowerCase() === this.page_active.text.toLowerCase()) {
+        return 'text-gold';
+      }
+    },
+    bgColorScrollY: function bgColorScrollY() {
+      var nav;
+
+      if (this.scroll_event > 50) {
+        nav = 'navbar-light bg-light';
+      } else nav = 'navbar-dark';
+
+      this.mediaQueryLogo();
+      return nav;
+    },
+    // Mediaquery
+    mediaQueryLogo: function mediaQueryLogo() {
+      var logo;
+
+      if (this.scroll_event > 50) {
+        logo = store.state.navbarData.logos.mobile.colorated;
+      } else logo = store.state.navbarData.logos.desktop.white;
+
+      return logo;
+    }
+  },
+  // navbarData.logos
+  template: "\n    <nav\n        :class=\"bgColorScrollY()\"\n        class=\"navbar navbar-expand-lg\">\n\n        <a class=\"navbar-brand\" :href=\"navbarData.linkHome\">\n            <img\n                :src=\"mediaQueryLogo()\" alt=\"logo\">\n        </a>\n\n        <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n        <span class=\"navbar-toggler-icon\"></span>\n        </button>\n\n        <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n            <ul class=\"navbar-nav mr-auto\">\n\n                <li\n                    v-for=\"(item,i) in navbarData.navItems\"\n                    :class=\"checkType(item.type)\"\n                    class=\"nav-item active\">\n\n                    <template v-if=\"item.type === 'link'\">\n                        <a\n                            class=\"nav-link\" :href=\"item.link\">\n                            <span\n                                @click:=\"pageActive(item)\"\n                                :class=\"pageActive(item)\">\n                                {{ item.text }}\n                            </span>\n                            <span class=\"sr-only\"> {{item.text}} </span>\n                        </a>\n                    </template>\n\n                    <template v-else-if=\"item.type === 'dropdown'\">\n                        <a\n                            @click:=\"pageActive(item)\"\n                            :class=\"pageActive(item)\"\n                            :href=\"item.link\"\n                            class=\"nav-link dropdown-toggle\"\n                            id=\"navbarDropdown\"\n                            role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\"\n                            aria-expanded=\"true\">\n                        {{ item.text }}\n                        </a>\n\n                        <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">\n                            <template v-for=\"(dropdownItem, i) in item.dropdownItems\">\n                                <a\n                                    @click:=\"pageActive(item)\"\n                                    :href=\"dropdownItem.link\"\n                                    class=\"dropdown-item\" > {{dropdownItem.text}} </a>\n                                <div class=\"dropdown-divider\"></div>\n                            </template>\n                        </div>\n                    </template>\n\n                    <template v-else-if=\"item.type === 'btnLink'\">\n                        <a\n                            @click:=\"pageActive(item)\"\n                            :class=\"pageActive(item)\"\n                            class=\"btn btn-lg\" :href=\"item.link\" role=\"button\">\n                            {{ item.text }}\n                        </a>\n                    </template>\n                </li>\n            </ul>\n        </div>\n    </nav>\n    "
 }); // Jumbotron
 
 Vue.component("jumbo-vue", {
@@ -120,12 +197,38 @@ Vue.component("jumbo-vue", {
 
 var app = new Vue({
   el: '#root',
+  vuetify: new Vuetify(),
   // "inject" the store
   // into all child components from the root component
   store: store,
-  data: {},
-  mounted: function mounted() {},
-  methods: {}
+  data: {
+    widhtScreen: 0,
+    scrollWindow: 0,
+    widthWindow: 0,
+    pageActive: null
+  },
+  created: function created() {
+    this.pageActive = store.state.navbarData.navItems[0];
+    console.log(this.pageActive);
+  },
+  mounted: function mounted() {
+    window.addEventListener('scroll', this.updateScroll);
+    this.widhtScreen = this.$vuetify.breakpoint.width;
+    console.log(this.widhtScreen);
+  },
+  computed: {// TODO: RECUPERARE LA LARGHEZZA AGGIORNATA
+    // get_widthWindow(){
+    //     console.log(this.widhtScreen)
+    //     this.widhtScreen = this.vuetify.breakpoint.width;
+    //     return this.widhtScreen;
+    // }
+  },
+  methods: {
+    updateScroll: function updateScroll() {
+      this.scrollWindow = window.scrollY;
+      console.log(event);
+    }
+  }
 });
 
 /***/ }),

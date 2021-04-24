@@ -3,7 +3,11 @@
     <head>
         <title>Avada-Charity</title>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Vuetify -->
+        <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet">
+         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -18,57 +22,57 @@
         <link rel="stylesheet" href="assets/css/master.css">
 
     </head>
+
     <body>
-        <div id="root">
+
+        <div id="root" v-on:scroll.passive = updateScroll()>
             <header>
-                <navbar-vue></navbar-vue>
+                <navbar-vue
+                    :scroll_event="scrollWindow"
+                    :page_active="pageActive"
+                    :widht_screen="widhtScreen"
+                ></navbar-vue>
                 <jumbo-vue></jumbo-vue>
             </header>
-            <main class="container">
-                <div class="row">
-                    <section class="cards">
-                        <div class="row">
-                            <div class="header-main col-12">
-                                <h2 class="mb-0">More painting possibilities</h2>
+            <main>
+                <section id="everyMomentCounts">
+                    <div class="row">
+                        <div class="col-xl-8 col-lg-12">
+                            <div class="card everyMoment">
+                                <div class="card-body">
+                                    <h2 class="card-title">EVERY MOMENT COUNTS</h2>
+                                    <div class="divider"></div>
+                                    <p class="card-text">Curabitur non mi et turpis pharetra vulputate. Cras consequat, risus nec commodo vehicula, nisi est laoreet leo, ac convallis nisi nibh id velit. Aliquam mattis metus a nisi pretium.</p>
+
+                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac nibh vestibulum, laoreet ipsum quis, vestibulum nisi. Curabitur non mi et turpis pharetra vulputate. Ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac nibh vestibulum, laoreet ipsum quis, vestibulum nisi.</p>
+
+                                    <p class="card-text">Curabitur non mi et turpis pharetra vulputate. Cras consequat, risus nec commodo vehicula, nisi est laoreet leo, ac convallis nisi nibh id velit.</p>
+
+                                    <a href="#" class="btn btn-warning">OUR MISSION</a>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="row">
-                            <div class="container">
-
-                                <h1>JIOLJIDOSAC</h1>
-                                <h1>JIOLJIDOSAC</h1>
-                                <h1>JIOLJIDOSAC</h1>
-                                <h1>JIOLJIDOSAC</h1>
-                                <h1>JIOLJIDOSAC</h1>
-                                <h1>JIOLJIDOSAC</h1>
-                                <h1>JIOLJIDOSAC</h1>
-                                <h1>JIOLJIDOSAC</h1>
-                                <h1>JIOLJIDOSAC</h1>
-                                <h1>JIOLJIDOSAC</h1>
-                                <h1>JIOLJIDOSAC</h1>
-                                <h1>JIOLJIDOSAC</h1>
-                                <h1>JIOLJIDOSAC</h1>
-                                <h1>JIOLJIDOSAC</h1>
-                                <h1>JIOLJIDOSAC</h1>
-                                <h1>JIOLJIDOSAC</h1>
-                                <h1>JIOLJIDOSAC</h1>
-                                <h1>JIOLJIDOSAC</h1>
-                                <h1>JIOLJIDOSAC</h1>
-                                <h1>JIOLJIDOSAC</h1>
-                                <h1>JIOLJIDOSAC</h1>
-                                <h1>JIOLJIDOSAC</h1>
-                                <h1>JIOLJIDOSAC</h1>
-                                <h1>JIOLJIDOSAC</h1>
-                                <h1>JIOLJIDOSAC</h1>
-                                <h1>JIOLJIDOSAC</h1>
-                                <h1>JIOLJIDOSAC</h1>
-                                <h1>JIOLJIDOSAC</h1>
-
+                        <div class="col-xl-4 col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="card-data volunteers">
+                                        <i class="far fa-heart">2032</i>
+                                        <div class="head-data">Volunteers worldwide</div>
+                                    </div>
+                                    <div class="card-data projectActive">
+                                        <i class="fas fa-globe">132</i>
+                                        <div class="head-data">Active projects</div>
+                                    </div>
+                                    <div class="card-data donated">
+                                        <i class="fas fa-dollar-sign">3.8M</i>
+                                        <div class="head-data">Donated</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </section>
-                </div>
+                    </div>
+                </section>
+
             </main>
         </div>
 
@@ -88,8 +92,12 @@
         <!-- Promise -->
         <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.js"></script>
 
+        <!-- vuetify -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vuetify/2.4.11/vuetify.min.js" integrity="sha512-36v63iCIica4vWLH2YSbz030v65pMUMXL5PXJCJ8+vSF99ME+lJWauL8am5LB39m3SaBinFTzgW0n87INJYo5g==" crossorigin="anonymous"></script>
+
         <!-- Script js -->
         <script src="assets/js/main.js"></script>
+
 
     </body>
 </html>

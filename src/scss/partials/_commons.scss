@@ -1,7 +1,17 @@
-.change_color {
-    background-color:red
+// text color
+.text-white{
+    color: $white;
 }
 
+.text-gold{
+    color: $goldenRod!important;
+}
+
+.text-black{
+    color: $black;
+}
+
+// Margin
 .mb-0{
     margin-bottom: 0;
 }
@@ -10,6 +20,15 @@
     margin-bottom: 3rem;
 }
 
+// Background
+
+// Btn-Background
 .btn-black{
     background-color: #000000;
+}
+
+
+.divider{
+    border: 2px solid #fcd66c;
+    width: 200px;
 }

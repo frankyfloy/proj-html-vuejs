@@ -9,40 +9,20 @@ body {
   font: 12px Arial, "Montserrat", sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Montserrat", sans-serif, serif;
+.row {
+  margin: 0;
 }
 
-h1 {
-  font-size: 200%;
+.text-white {
+  color: #ffffff;
 }
 
-h2 {
-  font-size: 170%;
+.text-gold {
+  color: #fcd66c !important;
 }
 
-h3 {
-  font-size: 140%;
-}
-
-h4 {
-  font-size: 120%;
-}
-
-h5 {
-  font-size: 100%;
-}
-
-h6 {
-  font-size: 80%;
-}
-
-p {
-  line-height: 1.5;
-}
-
-.change_color {
-  background-color: red;
+.text-black {
+  color: #000000;
 }
 
 .mb-0 {
@@ -57,6 +37,11 @@ p {
   background-color: #000000;
 }
 
+.divider {
+  border: 2px solid #fcd66c;
+  width: 200px;
+}
+
 nav.navbar {
   text-transform: capitalize;
   width: 100%;
@@ -69,10 +54,52 @@ nav.navbar {
   justify-content: space-between;
   padding-left: 100px;
   padding-right: 100px;
+  transition: background 0.4s ease-in-out;
 }
 nav.navbar .navbar-brand img {
   height: 70px;
   width: 345px;
+}
+nav.navbar .nav-link {
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+nav.navbar .dropdown-menu {
+  margin-top: 0 !important;
+  margin-left: 25px;
+  padding-top: 58px;
+  width: 250px;
+  background-color: transparent;
+  border: 0;
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+nav.navbar .dropdown-menu .dropdown-item {
+  background-color: #ffffff;
+  line-height: 40px;
+}
+nav.navbar .dropdown-menu .dropdown-item:hover {
+  opacity: 0.8;
+  transition: opacity 0.5s ease;
+}
+nav.navbar .dropdown-menu .dropdown-divider {
+  margin: 0;
+}
+nav.navbar .dropdown-menu .dropdown-item:first-child {
+  box-shadow: 0px -4px 0px 0px #fcd66c;
+}
+nav.navbar .dropdown:hover > .dropdown-menu {
+  visibility: visible;
+  opacity: 1;
+}
+nav.navbar .dropdown > .dropdown-toggle:active {
+  /*Without this, clicking will make it sticky*/
+  pointer-events: none;
+  transition: all 2s ease-in-out;
 }
 nav.navbar .navbar-collapse {
   flex-grow: 0;
@@ -173,7 +200,64 @@ main {
   z-index: 1;
   background-color: white;
 }
-
+main section#everyMomentCounts div[class^=col-]:first-child {
+  padding: 0;
+}
+main section#everyMomentCounts div[class^=col-]:first-child .card.everyMoment {
+  border: 0;
+  padding: 100px;
+}
+main section#everyMomentCounts div[class^=col-]:first-child .card.everyMoment .card-title {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-weight: 400;
+  font-size: 36px;
+}
+main section#everyMomentCounts div[class^=col-]:first-child .card.everyMoment .card-text {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 16px;
+}
+main section#everyMomentCounts div[class^=col-]:first-child .card.everyMoment a.btn {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  color: #ffffff;
+}
+main section#everyMomentCounts div[class^=col-]:first-child .card.everyMoment a.btn:hover {
+  background-color: #000000;
+}
+main section#everyMomentCounts div[class^=col-]:last-child {
+  padding: 0;
+}
+main section#everyMomentCounts div[class^=col-]:last-child .card {
+  border: 0;
+  height: 100%;
+  background-image: url("../img/home-content-bg-1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+main section#everyMomentCounts div[class^=col-]:last-child .card .card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+main section#everyMomentCounts div[class^=col-]:last-child .card .card-body .card-data {
+  text-align: center;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+}
+main section#everyMomentCounts div[class^=col-]:last-child .card .card-body .card-data i[class^=fa] {
+  font-size: 50px;
+}
+main section#everyMomentCounts div[class^=col-]:last-child .card .card-body .card-data div.head-data {
+  font-size: 24px;
+}
 .jumbotron {
   height: 100vh;
   width: 100vw;

@@ -34,6 +34,13 @@
     }
 }
 
+@mixin mx($m){
+    margin: {
+        left: $m;
+        right: $m;
+    }
+}
+
 
 @mixin px-0{
     padding: {

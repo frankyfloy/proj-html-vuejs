@@ -5,13 +5,83 @@ nav.navbar{
     justify-content: space-between;
     @include px(100px);
 
+    // TODO: mixin
+    -webkit-transition: background .4s ease-in-out;
+    -moz-transition: background .4s ease-in-out;
+    -ms-transition: background .4s ease-in-out;
+    -o-transition: background .4s ease-in-out;
+    transition: background .4s ease-in-out;
 
     .navbar-brand{
         img{
             @include hgt-wdt(70px,345px);
         }
+    }
+
+    .nav-link{
+        @include px-0;
+        @include mx(0);
+    }
+
+    .dropdown-menu{
+        // important for the show of the drop-down menu
+        margin-top: 0!important;
+        // ------------------------------------------
+        margin-left: 25px;
+        padding-top: 58px;
+        width: 250px;
+        background-color: transparent;
+        border: 0;
+
+        display: block;
+        visibility: hidden;
+        opacity: 0;
+        -webkit-transition: opacity .6s ease-in-out;
+        -moz-transition: opacity .6s ease-in-out;
+        -ms-transition: opacity .6s ease-in-out;
+        -o-transition: opacity .6s ease-in-out;
+        transition: opacity .6s ease-in-out;
+
+
+        // &:hover{
+        //     zoom: 1;
+        //     filter: alpha(opacity=50);
+        //     opacity: 0.5;
+        // }
+
+        .dropdown-item{
+            background-color: $white;
+            line-height: 40px;
+
+            &:hover{
+                opacity: 0.8;
+                transition: opacity 0.50s ease;
+            }
+        }
+
+        .dropdown-divider{
+            margin: 0;
+        }
+
+        .dropdown-item:first-child {
+            box-shadow: 0px -4px 0px 0px #fcd66c;
+        }
 
     }
+
+    .dropdown:hover > .dropdown-menu {
+        visibility: visible;
+        opacity: 1;
+    }
+    .dropdown > .dropdown-toggle:active {
+        /*Without this, clicking will make it sticky*/
+        pointer-events: none;
+        transition: all 2s ease-in-out;
+    }
+
+
+
+
 
     .navbar-collapse{
         flex-grow: 0;

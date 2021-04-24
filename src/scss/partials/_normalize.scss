@@ -6,11 +6,23 @@
 }
 
 body{ font: 12px Arial,  'Montserrat', sans-serif}
-h1,h2,h3,h4,h5,h6{font-family: 'Montserrat', sans-serif, serif}
-h1{font-size: 200%}
-h2{font-size: 170%}
-h3{font-size: 140%}
-h4{font-size: 120%}
-h5{font-size: 100%}
-h6{font-size: 80%}
-p{line-height: 1.5}
+
+.row{
+    margin: 0;
+}
+
+// Medium devices (tablets, 768px and up)
+// @media (min-width: 768px) and (max-width: 991.98px) { ... }
+
+// h1,h2,h3,h4,h5,h6{font-family: 'Montserrat', sans-serif, serif}
+// h1{font-size: 200%}
+// h2{font-size: 170%}
+// h3{font-size: 140%}
+// h4{font-size: 120%}
+// h5{font-size: 100%}
+// h6{font-size: 80%}
+// p{line-height: 1.5}
+
+// Media query breakpoints
+// $layout-breakpoint-large: 1250px;
+// $layout-breakpoint-small: 1020px;
