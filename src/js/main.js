@@ -393,8 +393,8 @@ const store = new Vuex.Store({
                         {
                             id: 'CHANGE_A_LIFE_TODAY',
                             type: 'col',
-                            mediaXl: 'col-12',
-                            mediaSm: 'col-12',
+                            mediaXl: 'col-7',
+                            mediaSm: 'col-7',
 
                             content:{
                                 type: 'card',

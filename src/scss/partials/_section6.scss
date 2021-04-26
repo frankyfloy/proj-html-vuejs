@@ -1,0 +1,47 @@
+#section6{
+    justify-content: center;
+    color: $white;
+
+    background-image: url('../img/home-footer.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+
+    div[class^="col-"]{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        font-size: 36px;
+
+        .card{
+            @include my(200px);
+            // .card-title{
+            //     color: #fcd66c;
+            // }
+            .card-text {
+                font-size: 24px;
+                color: $FrenchGray;
+                line-height: 40px;
+                margin-bottom: 20px;
+            }
+            .divider{
+                margin-top: 16px;
+                margin-bottom: 40px;
+                @include mx-auto;
+            }
+
+            a.btn{
+                background-color: inherit;
+                border: 2px solid $white;
+                color: $white;
+                @include mx(25px);
+                @include py(10px);
+                @include px(35px);
+            }
+        }
+    }
+
+
+}
