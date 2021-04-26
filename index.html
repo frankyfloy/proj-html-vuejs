@@ -56,24 +56,24 @@
                 </div>
             </main>
 
-            <footer >
-                <section
-                    v-for="(section, i) in getSections('footer')"
-                    :key="section.id"
-                    :id="section.id"
-                    class="row clearfix">
+            <footer>
+                <div class="container-fluid">
+                    <section
+                        v-for="(section, i) in getSections('footer')"
+                        :key="section.id"
+                        :id="section.id"
+                        class="row">
 
-                    <col-vue
-                        v-for="(col, i) in section.columns"
-                        :col="col"
-                        :key="'col' + i"
-                        :id="col.id"
-                        :class="col.mediaXl">
+                        <col-vue
+                            v-for="(col, i) in section.columns"
+                            :col="col"
+                            :key="'col' + i"
+                            :id="col.id"
+                            :class="col.mediaXl">
 
-                    </col-vue>
-                </section>
-
-
+                        </col-vue>
+                    </section>
+                </div>
             </footer>
         </div>
 

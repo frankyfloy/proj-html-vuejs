@@ -1,0 +1,44 @@
+#section2Foot{
+    background-color: $edward;
+    div[class^="col-"]:first-child{
+        display: flex;
+        justify-content: center;
+
+        @include my(20px);
+    }
+
+
+
+    div[class^="col-"]:nth-child(2){
+        display: flex;
+        justify-content: center;
+        @include my(20px);
+
+        ul{
+            display: flex;
+            flex-direction: row;
+            li{
+                cursor: pointer;
+                border-radius: 50%;
+                padding: 8px;
+                height: 50px;
+                width: 50px;
+                display: flex;
+                margin: 8px;
+                a[class^="fa"]{
+                    font-size: 30px;
+                    margin: auto;
+                    text-decoration: none;
+                    color: $goldenRod;
+
+                }
+
+
+                &:hover{
+                    opacity: 0.9;
+                }
+            }
+
+        }
+    }
+}

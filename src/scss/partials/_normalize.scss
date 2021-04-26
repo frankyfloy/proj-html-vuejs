@@ -5,7 +5,10 @@
     padding: 0;
 }
 
-body{ font: 12px Arial,  'Montserrat', sans-serif}
+body{
+    font: 12px Arial,  'Montserrat', sans-serif;
+    // overflow: hidden;  
+}
 
 
 // Medium devices (tablets, 768px and up)

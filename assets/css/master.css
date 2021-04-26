@@ -426,6 +426,7 @@ header {
 }
 #section5 div[class^=col-]:nth-child(2) .card .card-title, #section5 div[class^=col-]:nth-child(2) .card .card-text {
   padding-left: 20px;
+  line-height: 40px;
 }
 #section5 div[class^=col-]:nth-child(2) .card .card-title {
   color: #fcd66c;
@@ -609,7 +610,45 @@ main section#section1 div[class^=col-]:last-child div.world .cont-div-data .div-
   margin-bottom: 40px;
 }
 #section1Foot .cont-img img {
-  width: 350px;
+  width: 340px;
+}
+
+#section2Foot {
+  background-color: #a1aba9;
+}
+#section2Foot div[class^=col-]:first-child {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+#section2Foot div[class^=col-]:nth-child(2) {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+#section2Foot div[class^=col-]:nth-child(2) ul {
+  display: flex;
+  flex-direction: row;
+}
+#section2Foot div[class^=col-]:nth-child(2) ul li {
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 8px;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  margin: 8px;
+}
+#section2Foot div[class^=col-]:nth-child(2) ul li a[class^=fa] {
+  font-size: 30px;
+  margin: auto;
+  text-decoration: none;
+  color: #fcd66c;
+}
+#section2Foot div[class^=col-]:nth-child(2) ul li:hover {
+  opacity: 0.9;
 }
 
 footer {

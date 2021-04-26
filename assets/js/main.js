@@ -340,9 +340,44 @@ var store = new Vuex.Store({
             type: 'div-logo',
             "class": 'card-logo',
             img: {
-              src: "./assets/img/avada-charity-sticky-header-logo-retina.png",
+              src: "./assets/img/avada-charity-sticky-header-logo.png",
               link: 'https://avada.theme-fusion.com/charity/'
             }
+          }
+        }]
+      }, {
+        id: 'section2Foot',
+        columns: [{
+          id: 'termsAndCond',
+          type: 'col',
+          mediaXl: 'col-12',
+          mediaSm: 'col-12',
+          content: {
+            type: 'link-footer',
+            "class": 'link-footer',
+            span: "<nobr>\n                                    \xA9 Copyright 2012 - <span v-text=\"getYear\"></span>AVADA THEME BY THEME FUSION\n                                </nobr> | THEME BY <a href=\"http://theme-fusion.com/\">Terms of Use</a> | ALL RIGHTS RESERVED | POWERED BY <a href=\"#\">WORDPRESS</a>"
+          }
+        }, {
+          id: 'SocialContact',
+          type: 'col',
+          mediaXl: 'col-12',
+          mediaSm: 'col-12',
+          content: {
+            type: 'div-icon-social',
+            "class": 'card-logo',
+            div: [{
+              icon: 'fab fa-facebook cl-face',
+              link: 'https://www.facebook.com/'
+            }, {
+              icon: 'fab fa-instagram cl-insta',
+              link: 'https://www.instagram.com/'
+            }, {
+              icon: 'fab fa-twitter cl-twitter',
+              link: 'https://twitter.com/'
+            }, {
+              icon: 'fab fa-youtube cl-youTb',
+              link: 'https://www.pinterest.com/'
+            }]
           }
         }]
       }]
@@ -499,15 +534,7 @@ Vue.component("card-vue", {
     isInContent: function isInContent(tag) {
       console.log("-------------");
       return tag in this.card;
-    } // divider(){
-    //     let exists;
-    //     if(this.card.content.divider){
-    //         exists = true;
-    //     }else
-    //         exists = false;
-    //     return exists;
-    // }
-
+    }
   },
   template: "\n    <div class=\"my-card\">\n\n        <template v-if=\"isInContent('img')\">\n            <div v-for=\"(img,index) in card.img\"\n                :href=\"img.link\"\n                :key=\"index\"\n                class=\"cont-img\" >\n\n                <img\n                    :src=\"img.src\"\n                    class=\"\" >\n\n                <span>\n                    <span\n                        v-if=\"'span' in img || 'head' in img\"\n                        class=\"card-title\">\n                        {{ img.head }}\n                    </span>\n\n                    <template v-if=\"'p' in img\">\n                        <p\n                            v-for=\"(p, i) in img.p\"\n                            class=\"card-text\" > {{ p }}\n                        </p>\n                    </template>\n                </span>\n\n\n            </div>\n        </template>\n\n\n        <span v-if=\"isInContent('head')\" class=\"card-title\"> {{ card.head }} </span>\n\n        <template v-if=\"isInContent('divider')\">\n            <div class=\"divider\"></div>\n        </template>\n\n\n        <template v-if=\"isInContent('p')\">\n            <p\n                v-for=\"(p, i) in card.p\"\n                class=\"card-text\" > {{ p }}\n            </p>\n        </template>\n\n\n\n\n        <div v-if=\"isInContent('btn')\">\n            <a v-for=\"(btn,i) in card.btn\"\n                :key=\"'btn'+ i\"\n                class=\"btn btn-lg bg-goldenRod\" :href=\"btn.link\" role=\"button\">\n                {{ btn.text }}\n            </a>\n        </div>\n\n\n    </div>\n    "
 }); // Footer
@@ -526,6 +553,25 @@ Vue.component("logo-vue", {
   },
   template: "\n\n    <div v-if=\"isInContent('img')\"\"\n        :href=\"logo.img.link\"\n        class=\"cont-img\" >\n\n        <img\n            :src=\"logo.img.src\"\n            :class=\"logo.class\" >\n    </div>\n    "
 });
+Vue.component("termsAndConditions", {
+  props: {
+    terms: {
+      type: Object,
+      required: true
+    }
+  },
+  template: "\n    <span\n        v-html=\"terms.span\"\n        :class=\"terms.class\"></sp an>\n    "
+}); // simple list
+
+Vue.component("simple-list", {
+  props: {
+    list: {
+      type: Object,
+      required: true
+    }
+  },
+  template: "\n    <ul class=\"list-group\">\n        <li\n            v-for=\"(icon,i) in list.div\"\n            :key= \"'icon' + i\"\n            :class=\"'icon' + i\"\n            class=\"list-group-item\">\n                <a\n                    :class=\"icon.icon\"\n                    :href=\"icon.link\">\n                </a>\n        </li>\n    </ul>\n    "
+});
 Vue.component("col-vue", {
   props: {
     col: {
@@ -537,7 +583,7 @@ Vue.component("col-vue", {
     //     return section.col.widht.xl;
     // }
   },
-  template: "\n    <div>\n        <template v-if=\"col.content.type === 'card'\">\n            <card-vue\n                :card=\"col.content\"\n                :class=\"col.content.type\"\n\n            ></card-vue>\n        </template>\n\n        <template v-if=\"col.content.type === 'div-flex'\">\n            <item-flex\n                :items=\"col.content\"\n                :class=\"col.content.type\"\n            ></item-flex>\n        </template>\n\n        <template v-if=\"col.content.type === 'div-logo'\">\n            <logo-vue\n                :logo=\"col.content\"\n                :class=\"col.content.type\"\n            ></logo-vue>\n        </template>\n    </div>\n    "
+  template: "\n    <div>\n        <template v-if=\"col.content.type === 'card'\">\n            <card-vue\n                :card=\"col.content\"\n                :class=\"col.content.type\"\n\n            ></card-vue>\n        </template>\n\n        <template v-if=\"col.content.type === 'div-flex'\">\n            <item-flex\n                :items=\"col.content\"\n                :class=\"col.content.type\"\n            ></item-flex>\n        </template>\n\n        <template v-if=\"col.content.type === 'div-logo'\">\n            <logo-vue\n                :logo=\"col.content\"\n                :class=\"col.content.type\"\n            ></logo-vue>\n        </template>\n\n        <template v-if=\"col.content.type === 'link-footer'\">\n            <termsAndConditions\n                :terms = \"col.content\"\n                :class=\"col.content.type\">\n            </termsAndConditions>\n        </template>\n\n        <template v-if=\"col.content.type === 'div-icon-social'\">\n            <simple-list\n                :list = \"col.content\"\n                :class=\"col.content.type\">\n            </simple-list>\n        </template>\n    </div>\n    "
 }); // ****** ROOT *********
 
 var app = new Vue({

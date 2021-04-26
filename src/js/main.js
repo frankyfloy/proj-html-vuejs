@@ -434,13 +434,62 @@ const store = new Vuex.Store({
                                 class: 'card-logo',
 
                                 img:{
-                                    src: "./assets/img/avada-charity-sticky-header-logo-retina.png",
+                                    src: "./assets/img/avada-charity-sticky-header-logo.png",
                                     link: 'https://avada.theme-fusion.com/charity/',
                                 }
                             }
                         },
                     ]
                 },
+                {
+                    id: 'section2Foot',
+                    columns:[
+                        {
+                            id: 'termsAndCond',
+                            type: 'col',
+                            mediaXl: 'col-12',
+                            mediaSm: 'col-12',
+
+                            content: {
+                                type: 'link-footer',
+                                class: 'link-footer',
+                                span:`<nobr>
+                                    © Copyright 2012 - <span v-text="getYear"></span>AVADA THEME BY THEME FUSION
+                                </nobr> | THEME BY <a href="http://theme-fusion.com/">Terms of Use</a> | ALL RIGHTS RESERVED | POWERED BY <a href="#">WORDPRESS</a>`
+
+                            }
+                        },
+                        {
+                            id: 'SocialContact',
+                            type: 'col',
+                            mediaXl: 'col-12',
+                            mediaSm: 'col-12',
+
+                            content: {
+                                type: 'div-icon-social',
+                                class: 'card-logo',
+                                div: [
+                                    {
+                                        icon : 'fab fa-facebook cl-face',
+                                        link: 'https://www.facebook.com/'
+                                    },
+                                    {
+                                        icon : 'fab fa-instagram cl-insta',
+                                        link: 'https://www.instagram.com/'
+                                    },
+                                    {
+                                        icon : 'fab fa-twitter cl-twitter',
+                                        link: 'https://twitter.com/'
+                                    },
+                                    {
+                                        icon : 'fab fa-youtube cl-youTb',
+                                        link: 'https://www.pinterest.com/'
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
             ]
         }
     },
@@ -734,15 +783,6 @@ Vue.component("card-vue", {
             console.log("-------------");
             return tag in this.card;
         },
-
-        // divider(){
-        //     let exists;
-        //     if(this.card.content.divider){
-        //         exists = true;
-        //     }else
-        //         exists = false;
-        //     return exists;
-        // }
     },
 
     template: `
@@ -838,6 +878,50 @@ Vue.component("logo-vue", {
 })
 
 
+Vue.component("termsAndConditions", {
+    props: {
+        terms: {
+            type: Object,
+            required: true,
+        },
+    },
+
+    template: `
+    <span
+        v-html="terms.span"
+        :class="terms.class"></sp an>
+    `
+})
+
+// simple list
+Vue.component("simple-list", {
+    props: {
+        list: {
+            type: Object,
+            required: true,
+        },
+    },
+
+    template: `
+    <ul class="list-group">
+        <li
+            v-for="(icon,i) in list.div"
+            :key= "'icon' + i"
+            :class="'icon' + i"
+            class="list-group-item">
+                <a
+                    :class="icon.icon"
+                    :href="icon.link">
+                </a>
+        </li>
+    </ul>
+    `
+})
+
+
+
+
+
 
 Vue.component("col-vue", {
 
@@ -876,11 +960,23 @@ Vue.component("col-vue", {
                 :class="col.content.type"
             ></logo-vue>
         </template>
+
+        <template v-if="col.content.type === 'link-footer'">
+            <termsAndConditions
+                :terms = "col.content"
+                :class="col.content.type">
+            </termsAndConditions>
+        </template>
+
+        <template v-if="col.content.type === 'div-icon-social'">
+            <simple-list
+                :list = "col.content"
+                :class="col.content.type">
+            </simple-list>
+        </template>
     </div>
     `
 })
-
-
 
 
 
