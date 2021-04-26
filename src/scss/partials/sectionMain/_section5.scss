@@ -1,5 +1,8 @@
 #section5{
     justify-content: center;
+    background-color: $greyLight;
+
+
     .card{
         .card-title{
             color: #fcd66c;
@@ -47,7 +50,6 @@
         .card{
             display: flex;
             align-items: space-between;
-            // height: 100%;
             border: 1px solid $FrenchGray;
 
             .cont-img{
@@ -59,7 +61,7 @@
             }
             .card-title,.card-text{
                 padding-left: 20px;
-                line-height: 40px;
+                line-height: 30px;
             }
 
             .card-title {
@@ -78,7 +80,6 @@
         display: flex;
         font-size: 20px;
         .card{
-            // height: 100%;
             float: left;
             display: flex;
             flex-direction: column;
@@ -99,6 +100,7 @@
                 .card-text {
                     @include my(10px);
                     width: auto;
+                    line-height: 30px;
                 }
             }
 

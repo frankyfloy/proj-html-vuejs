@@ -4,7 +4,7 @@
         <title>Avada-Charity</title>
         <meta charset="utf-8">
 
-         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -19,51 +19,61 @@
         <!-- Animate -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
+        <!-- CSS -->
         <link rel="stylesheet" href="assets/css/master.css">
 
     </head>
 
     <body>
         <div id="root" v-on:scroll.passive = updateScroll()>
+
+            <!-- NAV E JUMBO DINAMICI -->
             <header class="clearfix">
+
                 <navbar-vue
                     :scroll_event="scrollWindow"
                     :page_active="pageActive"
                     :widht_screen="widhtScreen"
                 ></navbar-vue>
                 <jumbo-vue
-                    class="slide-fwd-center"></jumbo-vue>
+                    class="slide-fwd-center">
+                </jumbo-vue>
+
             </header>
+
 
             <main>
                 <div class="container-fluid">
+                    <!-- ITERAZIONI SEZIONI  -->
                     <section
                         v-for="(section, i) in getSections('main')"
                         :key="section.id"
                         :id="section.id"
                         class="row clearfix">
 
+                        <!-- ITERAZIONI COLONNE E CONTENUTI IN COMPONENTI ANNIDATI -->
                         <col-vue
                             v-for="(col, i) in section.columns"
                             :col="col"
                             :key="'col' + i"
                             :id="col.id"
                             :class="col.mediaXl">
-
                         </col-vue>
 
                     </section>
+
                 </div>
             </main>
 
             <footer>
                 <div class="container-fluid">
+                    <!-- ITERAZIONI SEZIONI FOOTER -->
                     <section
                         v-for="(section, i) in getSections('footer')"
                         :key="section.id"
                         :id="section.id"
                         class="row">
-
+                        <!-- ITERAZIONI COLONNE E CONTENUTI IN COMPONENTI ANNIDATI FOOTER-->
                         <col-vue
                             v-for="(col, i) in section.columns"
                             :col="col"
@@ -75,6 +85,7 @@
                     </section>
                 </div>
             </footer>
+            <div v-show="scrollWindow > 300"  @click="scrollToTop()" id="back_to_top"><i class="fas fa-caret-square-up animate__animated animate__fadeIn"></i></div>
         </div>
 
         <!-- Optional JavaScript -->
@@ -98,7 +109,5 @@
 
         <!-- Script js -->
         <script src="assets/js/main.js"></script>
-
-
     </body>
 </html>

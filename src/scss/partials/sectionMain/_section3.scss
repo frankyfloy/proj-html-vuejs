@@ -13,6 +13,10 @@
             margin-bottom: 40px;
             @include mx-auto;
         }
+
+        .card-text{
+            color: $tuna;
+        }
     }
 
 
@@ -50,7 +54,6 @@
                     background-color: #fcd66c;
                     opacity: 0;
                     z-index: 2;
-
                 }
 
                 img{

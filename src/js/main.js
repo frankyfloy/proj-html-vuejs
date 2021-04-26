@@ -1,6 +1,5 @@
 Vue.config.devtools = true;
 
-
 // Store
 const store = new Vuex.Store({
     state: {
@@ -89,7 +88,7 @@ const store = new Vuex.Store({
             ]
         },
 
-
+        // *****************************DATI MAIN
         mainDate:{
             sections : [
                 {
@@ -147,10 +146,6 @@ const store = new Vuex.Store({
                         }
                     ]
                 },
-
-
-
-
                 {
                     id: 'section2',
                     columns:[
@@ -167,7 +162,6 @@ const store = new Vuex.Store({
                                 p: ['Think Big. Act Bigger'],
                             }
                         },
-
                         {
                             id: 'CARD_OUR_VALUES',
                             type: 'col',
@@ -218,8 +212,6 @@ const store = new Vuex.Store({
                         }
                     ]
                 },
-
-
                 {
                     id: 'section3',
                     columns:[
@@ -268,7 +260,6 @@ const store = new Vuex.Store({
                                         link: 'https://avada.theme-fusion.com/charity/portfolio-items/vaccines/'
                                     }
                                 ]
-
                             }
                         }
                     ]
@@ -699,7 +690,6 @@ Vue.component("jumbo-vue", {
 })
 
 
-
 // -----------------------------MAIN
 Vue.component("item-flex", {
 
@@ -739,6 +729,7 @@ Vue.component("item-flex", {
                 class="div-data">
 
                 <i :class="div.icon"></i>
+
                 <span class="data-numbers"> {{ div.span }} </span>
 
                 <p class="head-data"> {{ div.p }} </p>
@@ -780,7 +771,6 @@ Vue.component("card-vue", {
 
     methods:{
         isInContent(tag){
-            console.log("-------------");
             return tag in this.card;
         },
     },
@@ -811,12 +801,10 @@ Vue.component("card-vue", {
                             class="card-text" > {{ p }}
                         </p>
                     </template>
+
                 </span>
-
-
             </div>
         </template>
-
 
         <span v-if="isInContent('head')" class="card-title"> {{ card.head }} </span>
 
@@ -824,16 +812,12 @@ Vue.component("card-vue", {
             <div class="divider"></div>
         </template>
 
-
         <template v-if="isInContent('p')">
             <p
                 v-for="(p, i) in card.p"
                 class="card-text" > {{ p }}
             </p>
         </template>
-
-
-
 
         <div v-if="isInContent('btn')">
             <a v-for="(btn,i) in card.btn"
@@ -843,10 +827,10 @@ Vue.component("card-vue", {
             </a>
         </div>
 
-
     </div>
     `
 })
+
 
 
 // Footer
@@ -889,9 +873,10 @@ Vue.component("termsAndConditions", {
     template: `
     <span
         v-html="terms.span"
-        :class="terms.class"></sp an>
+        :class="terms.class"></span>
     `
 })
+
 
 // simple list
 Vue.component("simple-list", {
@@ -917,10 +902,6 @@ Vue.component("simple-list", {
     </ul>
     `
 })
-
-
-
-
 
 
 Vue.component("col-vue", {
@@ -978,20 +959,6 @@ Vue.component("col-vue", {
     `
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // ****** ROOT *********
 var app = new Vue({
 
@@ -1018,19 +985,17 @@ var app = new Vue({
     },
 
     computed: {
-
         // TODO: RECUPERARE LA LARGHEZZA AGGIORNATA
         // get_widthWindow(){
         //     console.log(this.widhtScreen)
         //     this.widhtScreen = this.vuetify.breakpoint.width;
         //     return this.widhtScreen;
         // }
-
     },
+
     methods: {
         updateScroll() {
            this.scrollWindow = window.scrollY;
-           console.log(event);
         },
 
         getSections(whose){
@@ -1040,14 +1005,9 @@ var app = new Vue({
                 return store.state.footerDate.sections;
             }
         },
-
-
-
-        // getCol(){
-        //     return store.state.mainDate.sections;
-        // },
-
-
-
+        scrollToTop() {
+            console.log();
+            window.scrollTo(0, 0)
+        },
     },
 })

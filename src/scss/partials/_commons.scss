@@ -1,3 +1,16 @@
+#back_to_top {
+    height: 32px;
+    position: fixed;
+    z-index: 100;
+    bottom: 0px;
+    right: 34px;
+    cursor: pointer;
+
+    i{
+        font-size: 40px;
+    }
+}
+
 // text color
 .text-white{
     color: $white;

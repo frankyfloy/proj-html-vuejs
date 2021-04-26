@@ -82,6 +82,7 @@ var store = new Vuex.Store({
         link: 'https://avada.theme-fusion.com/charity/donate/'
       }]
     },
+    // *****************************DATI MAIN
     mainDate: {
       sections: [{
         id: 'section1',
@@ -520,7 +521,7 @@ Vue.component("item-flex", {
       return exists;
     }
   },
-  template: "\n    <div\n        v-if=\"isInContent('div')\"\n        :class=\"items.class\">\n\n        <div\n            v-if=\"items.class === 'world'\"\n            class=\"cont-div-data\">\n            <div\n                v-for=\"(div, i) in items.div\"\n                class=\"div-data\">\n\n                <i :class=\"div.icon\"></i>\n                <span class=\"data-numbers\"> {{ div.span }} </span>\n\n                <p class=\"head-data\"> {{ div.p }} </p>\n\n            </div>\n\n        </div>\n\n        <template v-else>\n            <div v-for=\"(div, i) in items.div\"\n                class=\"div-data col-3\">\n                <i :class=\"div.icon\"></i>\n                <span class=\"head-card\"> {{ div.span }} </span>\n\n                <p class=\"text-card\"> {{ div.p }} </p>\n\n                <a\n                    :href=\"div.btn.link\"\n                    class=\"btn btn-lg\"  role=\"button\">\n                    {{ div.btn.text }}\n                </a>\n            </div>\n        </template>\n    </div>\n    "
+  template: "\n    <div\n        v-if=\"isInContent('div')\"\n        :class=\"items.class\">\n\n        <div\n            v-if=\"items.class === 'world'\"\n            class=\"cont-div-data\">\n            <div\n                v-for=\"(div, i) in items.div\"\n                class=\"div-data\">\n\n                <i :class=\"div.icon\"></i>\n\n                <span class=\"data-numbers\"> {{ div.span }} </span>\n\n                <p class=\"head-data\"> {{ div.p }} </p>\n\n            </div>\n\n        </div>\n\n        <template v-else>\n            <div v-for=\"(div, i) in items.div\"\n                class=\"div-data col-3\">\n                <i :class=\"div.icon\"></i>\n                <span class=\"head-card\"> {{ div.span }} </span>\n\n                <p class=\"text-card\"> {{ div.p }} </p>\n\n                <a\n                    :href=\"div.btn.link\"\n                    class=\"btn btn-lg\"  role=\"button\">\n                    {{ div.btn.text }}\n                </a>\n            </div>\n        </template>\n    </div>\n    "
 }); // single card
 
 Vue.component("card-vue", {
@@ -532,11 +533,10 @@ Vue.component("card-vue", {
   },
   methods: {
     isInContent: function isInContent(tag) {
-      console.log("-------------");
       return tag in this.card;
     }
   },
-  template: "\n    <div class=\"my-card\">\n\n        <template v-if=\"isInContent('img')\">\n            <div v-for=\"(img,index) in card.img\"\n                :href=\"img.link\"\n                :key=\"index\"\n                class=\"cont-img\" >\n\n                <img\n                    :src=\"img.src\"\n                    class=\"\" >\n\n                <span>\n                    <span\n                        v-if=\"'span' in img || 'head' in img\"\n                        class=\"card-title\">\n                        {{ img.head }}\n                    </span>\n\n                    <template v-if=\"'p' in img\">\n                        <p\n                            v-for=\"(p, i) in img.p\"\n                            class=\"card-text\" > {{ p }}\n                        </p>\n                    </template>\n                </span>\n\n\n            </div>\n        </template>\n\n\n        <span v-if=\"isInContent('head')\" class=\"card-title\"> {{ card.head }} </span>\n\n        <template v-if=\"isInContent('divider')\">\n            <div class=\"divider\"></div>\n        </template>\n\n\n        <template v-if=\"isInContent('p')\">\n            <p\n                v-for=\"(p, i) in card.p\"\n                class=\"card-text\" > {{ p }}\n            </p>\n        </template>\n\n\n\n\n        <div v-if=\"isInContent('btn')\">\n            <a v-for=\"(btn,i) in card.btn\"\n                :key=\"'btn'+ i\"\n                class=\"btn btn-lg bg-goldenRod\" :href=\"btn.link\" role=\"button\">\n                {{ btn.text }}\n            </a>\n        </div>\n\n\n    </div>\n    "
+  template: "\n    <div class=\"my-card\">\n\n        <template v-if=\"isInContent('img')\">\n            <div v-for=\"(img,index) in card.img\"\n                :href=\"img.link\"\n                :key=\"index\"\n                class=\"cont-img\" >\n\n                <img\n                    :src=\"img.src\"\n                    class=\"\" >\n\n                <span>\n                    <span\n                        v-if=\"'span' in img || 'head' in img\"\n                        class=\"card-title\">\n                        {{ img.head }}\n                    </span>\n\n                    <template v-if=\"'p' in img\">\n                        <p\n                            v-for=\"(p, i) in img.p\"\n                            class=\"card-text\" > {{ p }}\n                        </p>\n                    </template>\n\n                </span>\n            </div>\n        </template>\n\n        <span v-if=\"isInContent('head')\" class=\"card-title\"> {{ card.head }} </span>\n\n        <template v-if=\"isInContent('divider')\">\n            <div class=\"divider\"></div>\n        </template>\n\n        <template v-if=\"isInContent('p')\">\n            <p\n                v-for=\"(p, i) in card.p\"\n                class=\"card-text\" > {{ p }}\n            </p>\n        </template>\n\n        <div v-if=\"isInContent('btn')\">\n            <a v-for=\"(btn,i) in card.btn\"\n                :key=\"'btn'+ i\"\n                class=\"btn btn-lg bg-goldenRod\" :href=\"btn.link\" role=\"button\">\n                {{ btn.text }}\n            </a>\n        </div>\n\n    </div>\n    "
 }); // Footer
 
 Vue.component("logo-vue", {
@@ -560,7 +560,7 @@ Vue.component("termsAndConditions", {
       required: true
     }
   },
-  template: "\n    <span\n        v-html=\"terms.span\"\n        :class=\"terms.class\"></sp an>\n    "
+  template: "\n    <span\n        v-html=\"terms.span\"\n        :class=\"terms.class\"></span>\n    "
 }); // simple list
 
 Vue.component("simple-list", {
@@ -617,7 +617,6 @@ var app = new Vue({
   methods: {
     updateScroll: function updateScroll() {
       this.scrollWindow = window.scrollY;
-      console.log(event);
     },
     getSections: function getSections(whose) {
       if (whose === 'main') {
@@ -625,10 +624,11 @@ var app = new Vue({
       } else if (whose === 'footer') {
         return store.state.footerDate.sections;
       }
-    } // getCol(){
-    //     return store.state.mainDate.sections;
-    // },
-
+    },
+    scrollToTop: function scrollToTop() {
+      console.log();
+      window.scrollTo(0, 0);
+    }
   }
 });
 
