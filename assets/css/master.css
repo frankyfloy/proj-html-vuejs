@@ -465,12 +465,18 @@ header {
   margin-bottom: 10px;
   width: auto;
 }
+#section5 div[class^=col-]:nth-child(4) {
+  margin-bottom: 100px;
+}
 #section5 div[class^=col-]:nth-child(4) a.btn {
   color: #ffffff;
   width: 100%;
   padding: 15px;
   background-color: #ea6862;
   margin: auto o;
+}
+#section5 div[class^=col-]:nth-child(4) a.btn:hover {
+  background-color: #8c9aa5;
 }
 
 #section6 {
@@ -505,15 +511,18 @@ header {
   margin-right: auto;
 }
 #section6 div[class^=col-] .card a.btn {
+  width: 180px;
   background-color: inherit;
   border: 2px solid #ffffff;
   color: #ffffff;
   margin-left: 25px;
   margin-right: 25px;
-  padding-top: 10px;
-  padding-bottom: 10px;
   padding-left: 35px;
   padding-right: 35px;
+}
+#section6 div[class^=col-] .card a.btn:hover {
+  color: #fcd66c;
+  border: 2px solid #fcd66c;
 }
 
 main {
@@ -590,6 +599,25 @@ main section#section1 div[class^=col-]:last-child div.world .cont-div-data .div-
   font-size: 24px;
   line-height: 40px;
 }
+#section1Foot {
+  text-align: center;
+  background-color: #ffffff;
+}
+#section1Foot .cont-img {
+  background-color: #ffffff;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+#section1Foot .cont-img img {
+  width: 350px;
+}
+
+footer {
+  position: relative;
+  z-index: 1;
+  background-color: white;
+}
+
 .jumbotron {
   height: 100vh;
   width: 100vw;

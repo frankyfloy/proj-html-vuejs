@@ -326,10 +326,25 @@ var store = new Vuex.Store({
             link: 'https://avada.theme-fusion.com/charity/donate/'
           }]), _content)
         }]
-      }, {
-        id: 'section7'
-      }, {
-        id: 'section8'
+      }]
+    },
+    footerDate: {
+      sections: [{
+        id: 'section1Foot',
+        columns: [{
+          id: 'LOGO-FOOTER',
+          type: 'col',
+          mediaXl: 'col-12',
+          mediaSm: 'col-12',
+          content: {
+            type: 'div-logo',
+            "class": 'card-logo',
+            img: {
+              src: "./assets/img/avada-charity-sticky-header-logo-retina.png",
+              link: 'https://avada.theme-fusion.com/charity/'
+            }
+          }
+        }]
       }]
     }
   },
@@ -494,9 +509,23 @@ Vue.component("card-vue", {
     // }
 
   },
-  template: "\n    <div class=\"my-card\">\n\n\n        <template v-if=\"isInContent('img')\">\n            <div v-for=\"(img,index) in card.img\"\n                :href=\"img.link\"\n                :key=\"index\"\n                class=\"cont-img\" >\n\n                <img\n                    :src=\"img.src\"\n                    class=\"\" >\n\n                <span>\n                    <span\n                        v-if=\"'span' in img || 'head' in img\"\n                        class=\"card-title\">\n                        {{ img.head }}\n                    </span>\n\n                    <template v-if=\"'p' in img\">\n                        <p\n                            v-for=\"(p, i) in img.p\"\n                            class=\"card-text\" > {{ p }}\n                        </p>\n                    </template>\n                </span>\n\n\n            </div>\n        </template>\n\n\n        <span v-if=\"isInContent('head')\" class=\"card-title\"> {{ card.head }} </span>\n\n        <template v-if=\"isInContent('divider')\">\n            <div class=\"divider\"></div>\n        </template>\n\n\n        <template v-if=\"isInContent('p')\">\n            <p\n                v-for=\"(p, i) in card.p\"\n                class=\"card-text\" > {{ p }}\n            </p>\n        </template>\n\n\n\n\n        <div v-if=\"isInContent('btn')\">\n            <a v-for=\"(btn,i) in card.btn\"\n                :key=\"'btn'+ i\"\n                class=\"btn btn-lg bg-goldenRod\" :href=\"btn.link\" role=\"button\">\n                {{ btn.text }}\n            </a>\n        </div>\n\n\n    </div>\n    "
-}); //
+  template: "\n    <div class=\"my-card\">\n\n        <template v-if=\"isInContent('img')\">\n            <div v-for=\"(img,index) in card.img\"\n                :href=\"img.link\"\n                :key=\"index\"\n                class=\"cont-img\" >\n\n                <img\n                    :src=\"img.src\"\n                    class=\"\" >\n\n                <span>\n                    <span\n                        v-if=\"'span' in img || 'head' in img\"\n                        class=\"card-title\">\n                        {{ img.head }}\n                    </span>\n\n                    <template v-if=\"'p' in img\">\n                        <p\n                            v-for=\"(p, i) in img.p\"\n                            class=\"card-text\" > {{ p }}\n                        </p>\n                    </template>\n                </span>\n\n\n            </div>\n        </template>\n\n\n        <span v-if=\"isInContent('head')\" class=\"card-title\"> {{ card.head }} </span>\n\n        <template v-if=\"isInContent('divider')\">\n            <div class=\"divider\"></div>\n        </template>\n\n\n        <template v-if=\"isInContent('p')\">\n            <p\n                v-for=\"(p, i) in card.p\"\n                class=\"card-text\" > {{ p }}\n            </p>\n        </template>\n\n\n\n\n        <div v-if=\"isInContent('btn')\">\n            <a v-for=\"(btn,i) in card.btn\"\n                :key=\"'btn'+ i\"\n                class=\"btn btn-lg bg-goldenRod\" :href=\"btn.link\" role=\"button\">\n                {{ btn.text }}\n            </a>\n        </div>\n\n\n    </div>\n    "
+}); // Footer
 
+Vue.component("logo-vue", {
+  props: {
+    logo: {
+      type: Object,
+      required: true
+    }
+  },
+  methods: {
+    isInContent: function isInContent(tag) {
+      return tag in this.logo;
+    }
+  },
+  template: "\n\n    <div v-if=\"isInContent('img')\"\"\n        :href=\"logo.img.link\"\n        class=\"cont-img\" >\n\n        <img\n            :src=\"logo.img.src\"\n            :class=\"logo.class\" >\n    </div>\n    "
+});
 Vue.component("col-vue", {
   props: {
     col: {
@@ -508,7 +537,7 @@ Vue.component("col-vue", {
     //     return section.col.widht.xl;
     // }
   },
-  template: "\n    <div>\n        <template v-if=\"col.content.type === 'card'\">\n            <card-vue\n                :card=\"col.content\"\n                :class=\"col.content.type\"\n\n            ></card-vue>\n        </template>\n\n        <template v-if=\"col.content.type === 'div-flex'\">\n            <item-flex\n                :items=\"col.content\"\n                :class=\"col.content.type\"\n            ></item-flex>\n        </template>\n    </div>\n    "
+  template: "\n    <div>\n        <template v-if=\"col.content.type === 'card'\">\n            <card-vue\n                :card=\"col.content\"\n                :class=\"col.content.type\"\n\n            ></card-vue>\n        </template>\n\n        <template v-if=\"col.content.type === 'div-flex'\">\n            <item-flex\n                :items=\"col.content\"\n                :class=\"col.content.type\"\n            ></item-flex>\n        </template>\n\n        <template v-if=\"col.content.type === 'div-logo'\">\n            <logo-vue\n                :logo=\"col.content\"\n                :class=\"col.content.type\"\n            ></logo-vue>\n        </template>\n    </div>\n    "
 }); // ****** ROOT *********
 
 var app = new Vue({
@@ -544,12 +573,16 @@ var app = new Vue({
       this.scrollWindow = window.scrollY;
       console.log(event);
     },
-    getSections: function getSections() {
-      return store.state.mainDate.sections;
-    },
-    getCol: function getCol() {
-      return store.state.mainDate.sections;
-    }
+    getSections: function getSections(whose) {
+      if (whose === 'main') {
+        return store.state.mainDate.sections;
+      } else if (whose === 'footer') {
+        return store.state.footerDate.sections;
+      }
+    } // getCol(){
+    //     return store.state.mainDate.sections;
+    // },
+
   }
 });
 

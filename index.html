@@ -38,7 +38,7 @@
             <main>
                 <div class="container-fluid">
                     <section
-                        v-for="(section, i) in getSections()"
+                        v-for="(section, i) in getSections('main')"
                         :key="section.id"
                         :id="section.id"
                         class="row clearfix">
@@ -55,6 +55,26 @@
                     </section>
                 </div>
             </main>
+
+            <footer >
+                <section
+                    v-for="(section, i) in getSections('footer')"
+                    :key="section.id"
+                    :id="section.id"
+                    class="row clearfix">
+
+                    <col-vue
+                        v-for="(col, i) in section.columns"
+                        :col="col"
+                        :key="'col' + i"
+                        :id="col.id"
+                        :class="col.mediaXl">
+
+                    </col-vue>
+                </section>
+
+
+            </footer>
         </div>
 
         <!-- Optional JavaScript -->

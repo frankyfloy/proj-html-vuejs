@@ -112,12 +112,18 @@
         }
     }
     div[class^="col-"]:nth-child(4) {
+        margin-bottom: 100px;
         a.btn{
             color: $white;
             width: 100%;
             padding: 15px;
             background-color: $burntSienna;
             margin: auto o;
+
+            &:hover{
+                // color: $white;
+                background-color: $regentGray;
+            }
         }
     }
 }

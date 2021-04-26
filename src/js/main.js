@@ -416,13 +416,31 @@ const store = new Vuex.Store({
                         },
                     ]
                 },
+            ]
+        },
+        footerDate:{
+            sections : [
                 {
-                    id: 'section7'
-                },
-                {
-                    id: 'section8'
-                }
+                    id: 'section1Foot',
+                    columns:[
+                        {
+                            id: 'LOGO-FOOTER',
+                            type: 'col',
+                            mediaXl: 'col-12',
+                            mediaSm: 'col-12',
 
+                            content: {
+                                type: 'div-logo',
+                                class: 'card-logo',
+
+                                img:{
+                                    src: "./assets/img/avada-charity-sticky-header-logo-retina.png",
+                                    link: 'https://avada.theme-fusion.com/charity/',
+                                }
+                            }
+                        },
+                    ]
+                },
             ]
         }
     },
@@ -730,7 +748,6 @@ Vue.component("card-vue", {
     template: `
     <div class="my-card">
 
-
         <template v-if="isInContent('img')">
             <div v-for="(img,index) in card.img"
                 :href="img.link"
@@ -792,9 +809,36 @@ Vue.component("card-vue", {
 })
 
 
+// Footer
+Vue.component("logo-vue", {
+
+    props:{
+        logo: {
+            type: Object,
+            required : true
+        },
+    },
+    methods:{
+        isInContent(tag){
+            return tag in this.logo;
+        },
+    },
+
+    template: `
+
+    <div v-if="isInContent('img')""
+        :href="logo.img.link"
+        class="cont-img" >
+
+        <img
+            :src="logo.img.src"
+            :class="logo.class" >
+    </div>
+    `
+})
 
 
-//
+
 Vue.component("col-vue", {
 
     props:{
@@ -824,6 +868,13 @@ Vue.component("col-vue", {
                 :items="col.content"
                 :class="col.content.type"
             ></item-flex>
+        </template>
+
+        <template v-if="col.content.type === 'div-logo'">
+            <logo-vue
+                :logo="col.content"
+                :class="col.content.type"
+            ></logo-vue>
         </template>
     </div>
     `
@@ -886,13 +937,19 @@ var app = new Vue({
            console.log(event);
         },
 
-        getSections(){
-            return store.state.mainDate.sections;
+        getSections(whose){
+            if(whose === 'main'){
+                return store.state.mainDate.sections;
+            }else if(whose === 'footer'){
+                return store.state.footerDate.sections;
+            }
         },
 
-        getCol(){
-            return store.state.mainDate.sections;
-        },
+
+
+        // getCol(){
+        //     return store.state.mainDate.sections;
+        // },
 
 
 

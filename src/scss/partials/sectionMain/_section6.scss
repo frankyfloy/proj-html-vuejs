@@ -17,9 +17,6 @@
 
         .card{
             @include my(200px);
-            // .card-title{
-            //     color: #fcd66c;
-            // }
             .card-text {
                 font-size: 24px;
                 color: $FrenchGray;
@@ -33,12 +30,16 @@
             }
 
             a.btn{
+                width: 180px;
                 background-color: inherit;
                 border: 2px solid $white;
                 color: $white;
                 @include mx(25px);
-                @include py(10px);
                 @include px(35px);
+                &:hover{
+                    color: $goldenRod;
+                    border: 2px solid $goldenRod;
+                }
             }
         }
     }

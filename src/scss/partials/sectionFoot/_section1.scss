@@ -1,0 +1,14 @@
+
+#section1Foot{
+
+    text-align: center;
+
+    background-color: $white;
+    .cont-img{
+        background-color: $white;
+        @include my(40px);
+        img{
+            width: 350px;
+        }
+    }
+}
