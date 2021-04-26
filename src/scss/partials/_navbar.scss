@@ -97,8 +97,6 @@ nav.navbar{
 
         .btn{
             @include px(30px);
-            border-radius: 0;
-            font-size: $fontSizeNav;
             background-color: $goldenRod;
             color: $white;
 

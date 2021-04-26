@@ -1,0 +1,82 @@
+#section2{
+
+    @include px(100px);
+
+    color: $white;
+
+    // @include bg-image('img/home-content-bg-2.jpg',no-repeat,contain);
+    background-image: url('../img/home-content-bg-2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    .card{
+        text-align: center;
+        .card-title{
+            font-size: 36px;
+        }
+        .card-text:last-child {
+            font-size: 24px;
+        }
+        .divider{
+            margin-top: 16px;
+            margin-bottom: 40px;
+            @include mx-auto;
+        }
+    }
+
+
+    div[class^="col-"]{
+        margin: 100px 0;
+    }
+    div[class^="col-"]:first-child{
+        display: flex;
+        justify-content: center;
+    }
+
+
+    div[class^="col-"]:last-child{
+
+        .div-data{
+            float: left;
+            display: flex;
+            flex-direction: column;
+            // flex-wrap: wrap;
+            text-align: center;
+            @include px(20px);
+
+            i{
+                font-size: 60px;
+                color: $goldenRod;
+            }
+
+            .head-card{
+                font-size: 26px;
+                line-height: 100px;
+            }
+
+            .text-card{
+                padding: inherit;
+                font-size: 16px;
+                line-height: 40px;
+                color: $FrenchGray;
+            }
+
+            .btn{
+                width: 175px;
+                @include px(30px);
+                margin: auto;
+                background-color: $goldenRod;
+                color: $white;
+
+                &:hover{
+                    background-color: #000000;
+                }
+            }
+
+        }
+    }
+
+
+
+
+}

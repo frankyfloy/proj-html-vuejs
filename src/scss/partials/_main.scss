@@ -1,15 +1,28 @@
+@import '_section2.scss';
+@import '_section3.scss';
+@import '_section4.scss';
+@import '_section5.scss';
+
 main{
+
+
     position: relative;
     z-index: 1;
     background-color: white;
 
 
-    section#everyMomentCounts{
+
+
+    .container-fluid{
+        margin-top: 50px;
+    }
+
+    section#section1{
 
         div[class^="col-"]:first-child{
             padding: 0;
-
-            .card.everyMoment{
+            float: left;
+            .card{
                 border: 0;
                 padding: 100px;
                 .card-title{
@@ -28,7 +41,6 @@ main{
                     @include px(30px);
                     color: $white;
                     &:hover{
-
                         background-color: $black;
                     }
                 }
@@ -37,8 +49,8 @@ main{
 
         div[class^="col-"]:last-child{
             padding: 0;
-
-            .card{
+            float: left;
+            div.world{
                 border: 0;
                 height: 100%;
                 background-image: url('../img/home-content-bg-1.jpg');
@@ -46,27 +58,35 @@ main{
                 background-size: cover;
                 background-position: center;
 
-                .card-body{
+                .cont-div-data{
                     display: flex;
                     flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                    .card-data{
-                        text-align: center;
-                        height: 100px;
+                    height: 100%;
+                    padding: 100px;
+
+
+                    .div-data{
+                        height: 100%;
                         display: flex;
                         flex-direction: column;
-                        // flex-wrap: wrap;
+                        // @include my(50px);
+                        text-align: center;
+                        justify-content: center;
 
                         color: $white;
 
                         i[class^="fa"]{
                             font-size: 50px;
-
                         }
 
-                        div.head-data{
+                        span.data-numbers{
+                            padding-left: 10px;
+                            font-size: 60px;
+                        }
+
+                        p.head-data{
                             font-size: 24px;
+                            line-height: 40px;
                         }
                     }
                 }

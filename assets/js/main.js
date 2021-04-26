@@ -7,6 +7,10 @@
   \************************/
 /***/ (() => {
 
+var _content;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 Vue.config.devtools = true; // Store
 
 var store = new Vuex.Store({
@@ -77,6 +81,256 @@ var store = new Vuex.Store({
         text: 'donate',
         link: 'https://avada.theme-fusion.com/charity/donate/'
       }]
+    },
+    mainDate: {
+      sections: [{
+        id: 'section1',
+        columns: [{
+          id: 'everyMomentCounts',
+          type: 'col',
+          mediaXl: 'col-8',
+          mediaSm: 'col-12',
+          content: {
+            type: 'card',
+            head: 'EVERY MOMENT COUNTS',
+            divider: true,
+            p: ['Curabitur non mi et turpis pharetra vulputate. Cras consequat, risus nec commodo vehicula, nisi est laoreet leo, ac convallis nisi nibh id velit. Aliquam mattis metus a nisi pretium.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac nibh vestibulum, laoreet ipsum quis, vestibulum nisi. Curabitur non mi et turpis pharetra vulputate. Ipsum dolor sit amet, consectetur adipiscing elit. Praesent ac nibh vestibulum, laoreet ipsum quis, vestibulum nisi.', 'Curabitur non mi et turpis pharetra vulputate. Cras consequat, risus nec commodo vehicula, nisi est laoreet leo, ac convallis nisi nibh id velit.'],
+            btn: [{
+              text: 'our mission',
+              link: 'https://avada.theme-fusion.com/charity/mission/'
+            }]
+          }
+        }, {
+          id: 'numbersReached',
+          type: 'col',
+          mediaXl: 'col-4',
+          mediaSm: 'col-12',
+          content: {
+            type: 'div-flex',
+            "class": 'world',
+            div: [{
+              icon: 'far fa-heart',
+              span: '2032',
+              p: 'Volunteers worldwide'
+            }, {
+              icon: 'fas fa-globe',
+              span: '132',
+              p: 'Volunteers worldwide'
+            }, {
+              icon: 'fas fa-dollar-sign',
+              span: '3.8M',
+              p: 'Volunteers worldwide'
+            }]
+          }
+        }]
+      }, {
+        id: 'section2',
+        columns: [{
+          id: 'OUR_VALUES',
+          type: 'col',
+          mediaXl: 'col-12',
+          mediaSm: 'col-12',
+          content: {
+            type: 'card',
+            head: 'OUR VALUES',
+            divider: true,
+            p: ['Think Big. Act Bigger']
+          }
+        }, {
+          id: 'CARD_OUR_VALUES',
+          type: 'col',
+          mediaXl: 'col-12',
+          mediaSm: 'col-12',
+          content: {
+            type: 'div-flex',
+            "class": 'cardOurValues',
+            div: [{
+              icon: 'fas fa-tint',
+              span: 'Clean Water',
+              p: 'Nullam convallis, orci in congue aliquet, diam mauris cursus urna, Id maximus lectus magna maximus.',
+              btn: {
+                text: 'LEARN MORE',
+                link: 'https://avada.theme-fusion.com/charity/mission/'
+              }
+            }, {
+              icon: 'fas fa-stethoscope',
+              span: 'Vaccinations',
+              p: 'Nullam convallis, orci in congue aliquet, diam mauris cursus urna, Id maximus lectus magna maximus.',
+              btn: {
+                text: 'LEARN MORE',
+                link: 'https://avada.theme-fusion.com/charity/mission/'
+              }
+            }, {
+              icon: 'fas fa-graduation-cap',
+              span: 'Education',
+              p: 'Nullam convallis, orci in congue aliquet, diam mauris cursus urna, Id maximus lectus magna maximus.',
+              btn: {
+                text: 'LEARN MORE',
+                link: 'https://avada.theme-fusion.com/charity/mission/'
+              }
+            }, {
+              icon: 'fab fa-pagelines',
+              span: 'Farming',
+              p: 'Nullam convallis, orci in congue aliquet, diam mauris cursus urna, Id maximus lectus magna maximus.',
+              btn: {
+                text: 'LEARN MORE',
+                link: 'https://avada.theme-fusion.com/charity/mission/'
+              }
+            }]
+          }
+        }]
+      }, {
+        id: 'section3',
+        columns: [{
+          id: 'RECENT_CAUSES',
+          type: 'col',
+          mediaXl: 'col-12',
+          mediaSm: 'col-12',
+          content: {
+            type: 'card',
+            head: 'RECENT CAUSES',
+            divider: true,
+            p: ['We run projects in over 30 countries in 5 contintents']
+          }
+        }, {
+          id: 'CARD_OUR_VALUES',
+          type: 'col',
+          mediaXl: 'col-12',
+          mediaSm: 'col-12',
+          content: {
+            type: 'card',
+            "class": 'cardImgRecentCause',
+            img: [{
+              head: 'FAIR TRADE',
+              src: "./assets/img/avada-charity-fair-trade-featured-600x450.jpg",
+              link: 'https://avada.theme-fusion.com/charity/portfolio-items/fair-trade/'
+            }, {
+              head: 'SHELTER',
+              src: "./assets/img/avada-charity-shelter-featured-600x450.jpg",
+              link: 'https://avada.theme-fusion.com/charity/portfolio-items/shelter/'
+            }, {
+              head: 'FARMING',
+              src: "./assets/img/avada-charity-farming-featured-600x450.jpg",
+              link: 'https://avada.theme-fusion.com/charity/portfolio-items/farming/'
+            }, {
+              head: 'VACCINES',
+              src: "./assets/img/avada-charity-vaccines-featured-600x450.jpg",
+              link: 'https://avada.theme-fusion.com/charity/portfolio-items/vaccines/'
+            }]
+          }
+        }]
+      }, {
+        id: 'section4',
+        columns: [{
+          id: 'VIEW_ALL_OUR_CAUSES',
+          type: 'col',
+          mediaXl: 'col-12',
+          mediaSm: 'col-12',
+          content: {
+            type: 'card',
+            btn: [{
+              text: 'VIEW ALL OUR CAUSES',
+              link: 'https://avada.theme-fusion.com/charity/causes/'
+            }]
+          }
+        }]
+      }, {
+        id: 'section5',
+        columns: [{
+          id: 'LATEST_ARTICLES',
+          type: 'col',
+          mediaXl: 'col-12',
+          mediaSm: 'col-12',
+          content: {
+            type: 'card',
+            head: 'LATEST ARTICLES',
+            divider: true,
+            p: ['Together we make all the difference']
+          }
+        }, {
+          id: 'RECENT_CAUSES',
+          type: 'col',
+          mediaXl: 'col-4',
+          mediaSm: 'col-4',
+          content: {
+            type: 'card',
+            "class": 'cardImgRecentCause',
+            img: [{
+              headHover: 'Understanding community complexities',
+              head: 'Understanding community complexities',
+              src: "./assets/img/photo-1444213007800-cff19e1677ac-600x450.jpg",
+              link: 'https://avada.theme-fusion.com/charity/portfolio-items/fair-trade/',
+              p: ['Lorem ipsum dolor sit amet, consectetur adipiscing elit. Prasent ac nibh vestibulum, laoreet ipsum.']
+            }]
+          }
+        }, {
+          id: 'RECENT_CAUSES2',
+          type: 'col',
+          mediaXl: 'col-4',
+          mediaSm: 'col-4',
+          content: {
+            type: 'card',
+            "class": 'cardImgRecentCause',
+            img: [{
+              head: 'The human story of uniqueness',
+              src: "./assets/img/photo-1444664597500-035db93e2323-177x142.jpg",
+              link: 'https://avada.theme-fusion.com/charity/portfolio-items/shelter/',
+              p: ['Lorem ipsum dolor sit amet, consectetur adipiscing elit. Prasent ac nibh vestibulum, laoreet ipsum.']
+            }, {
+              head: 'Sustainable trade tactics',
+              src: "./assets/img/photo-1447430617419-95715602278e-177x142.jpg",
+              link: 'https://avada.theme-fusion.com/charity/portfolio-items/farming/',
+              p: ['Lorem ipsum dolor sit amet, consectetur adipiscing elit. Prasent ac nibh vestibulum, laoreet ipsum.']
+            }, {
+              head: 'Farmers making a difference',
+              src: "./assets/img/photo-1460230525622-630fe3294cd7-177x142.jpg",
+              link: 'https://avada.theme-fusion.com/charity/portfolio-items/vaccines/',
+              p: ['Lorem ipsum dolor sit amet, consectetur adipiscing elit. Prasent ac nibh vestibulum, laoreet ipsum.']
+            }, {
+              head: 'Meeting remote tribes in Peru',
+              src: "./assets/img/photo-1460600421604-5e138c208b9c-177x142.jpg",
+              link: 'https://avada.theme-fusion.com/charity/portfolio-items/vaccines/',
+              p: ['Lorem ipsum dolor sit amet, consectetur adipiscing elit. Prasent ac nibh vestibulum, laoreet ipsum.']
+            }]
+          }
+        }, {
+          id: 'VIEW_ALL_OUR_CAUSES',
+          type: 'col',
+          mediaXl: 'col-8',
+          mediaSm: 'col-8',
+          content: {
+            type: 'card',
+            btn: [{
+              text: 'VIEW ALL OUR ARTICLES',
+              link: 'https://avada.theme-fusion.com/charity/journal/'
+            }]
+          }
+        }]
+      }, {
+        id: 'section6',
+        columns: [{
+          id: 'CHANGE_A_LIFE_TODAY',
+          type: 'col',
+          mediaXl: 'col-12',
+          mediaSm: 'col-12',
+          content: (_content = {
+            type: 'card',
+            head: 'CHANGE A LIFE TODAY',
+            divider: true,
+            p: ['As long as poverty, injustice & inequality persist, none of us can truly rest. It doesn’t take much to change a life, Get in touch today and start making the difference.']
+          }, _defineProperty(_content, "divider", true), _defineProperty(_content, "btn", [{
+            text: 'VOLUNTEER',
+            link: 'https://avada.theme-fusion.com/charity/causes/'
+          }, {
+            text: 'DONATE NOW',
+            link: 'https://avada.theme-fusion.com/charity/donate/'
+          }]), _content)
+        }]
+      }, {
+        id: 'section7'
+      }, {
+        id: 'section8'
+      }]
     }
   },
   mutations: {
@@ -97,10 +351,9 @@ var store = new Vuex.Store({
       commit('PAGE_ACTIVE', page);
     }
   },
-  getters: {
-    getPageActive: function getPageActive(state) {
-      return state.pageActive;
-    }
+  getters: {// getPageActive (state) {
+    //     return state.pageActive
+    // }
   }
 }); // ------------ HEADER
 // nav
@@ -192,7 +445,70 @@ Vue.component("jumbo-vue", {
       console.log(headerData);
     })
   },
-  template: "\n    <div class=\"jumbotron jumbotron-fluid\">\n\n        <img :src=\"headerData.background\" alt=\"background-image\">\n\n        <div class=\"container\">\n            <h1 class=\"title\"> {{ headerData.title }} </h1>\n            <p v-for=\"(lead,i) in headerData.lead\"\n                :key=\"'lead' + i\"\n                :class=\"'lead'+ (i + 1)\">\n                {{ lead }}\n            </p>\n            <div class=\"btn-group mt-3\" role=\"group\" aria-label=\"donare\">\n                <div v-for=\"(btn,i) in headerData.buttons\"\n                    :key=\"'btn'+ i\"\n                    class=\"cont-btn\">\n                    <a :class=\"'btn'+ (i + 1)\"\n                        class=\"btn btn-lg\" :href=\"btn.link\" role=\"button\">\n                        {{ btn.text }}\n                    </a>\n                </div>\n            </div>\n        </div>\n    </div>\n    "
+  template: "\n    <div class=\"jumbotron jumbotron-fluid\">\n\n        <img :src=\"headerData.background\" alt=\"background-image\">\n\n        <div class=\"container animate__animated animate__fadeInUp animate__slow\">\n            <h1 class=\"title\"> {{ headerData.title }} </h1>\n            <p v-for=\"(lead,i) in headerData.lead\"\n                :key=\"'lead' + i\"\n                :class=\"'lead'+ (i + 1)\">\n                {{ lead }}\n            </p>\n            <div class=\"btn-group mt-3\" role=\"group\" aria-label=\"donare\">\n                <div v-for=\"(btn,i) in headerData.buttons\"\n                    :key=\"'btn'+ i\"\n                    class=\"cont-btn\">\n                    <a :class=\"'btn'+ (i + 1)\"\n                        class=\"btn btn-lg\" :href=\"btn.link\" role=\"button\">\n                        {{ btn.text }}\n                    </a>\n                </div>\n            </div>\n        </div>\n    </div>\n    "
+}); // -----------------------------MAIN
+
+Vue.component("item-flex", {
+  props: {
+    items: {
+      type: Object,
+      required: true
+    }
+  },
+  methods: {
+    isInContent: function isInContent(tag) {
+      console.log("-------------");
+      return tag in this.items;
+    },
+    divider: function divider() {
+      var exists;
+
+      if (this.items.content.divider) {
+        exists = true;
+      } else exists = false;
+
+      return exists;
+    }
+  },
+  template: "\n    <div\n        v-if=\"isInContent('div')\"\n        :class=\"items.class\">\n\n        <div\n            v-if=\"items.class === 'world'\"\n            class=\"cont-div-data\">\n            <div\n                v-for=\"(div, i) in items.div\"\n                class=\"div-data\">\n\n                <i :class=\"div.icon\"></i>\n                <span class=\"data-numbers\"> {{ div.span }} </span>\n\n                <p class=\"head-data\"> {{ div.p }} </p>\n\n            </div>\n\n        </div>\n\n        <template v-else>\n            <div v-for=\"(div, i) in items.div\"\n                class=\"div-data col-3\">\n                <i :class=\"div.icon\"></i>\n                <span class=\"head-card\"> {{ div.span }} </span>\n\n                <p class=\"text-card\"> {{ div.p }} </p>\n\n                <a\n                    :href=\"div.btn.link\"\n                    class=\"btn btn-lg\"  role=\"button\">\n                    {{ div.btn.text }}\n                </a>\n            </div>\n        </template>\n    </div>\n    "
+}); // single card
+
+Vue.component("card-vue", {
+  props: {
+    card: {
+      type: Object,
+      required: true
+    }
+  },
+  methods: {
+    isInContent: function isInContent(tag) {
+      console.log("-------------");
+      return tag in this.card;
+    } // divider(){
+    //     let exists;
+    //     if(this.card.content.divider){
+    //         exists = true;
+    //     }else
+    //         exists = false;
+    //     return exists;
+    // }
+
+  },
+  template: "\n    <div class=\"my-card\">\n\n\n        <template v-if=\"isInContent('img')\">\n            <div v-for=\"(img,index) in card.img\"\n                :href=\"img.link\"\n                :key=\"index\"\n                class=\"cont-img\" >\n\n                <img\n                    :src=\"img.src\"\n                    class=\"\" >\n\n                <span>\n                    <span\n                        v-if=\"'span' in img || 'head' in img\"\n                        class=\"card-title\">\n                        {{ img.head }}\n                    </span>\n\n                    <template v-if=\"'p' in img\">\n                        <p\n                            v-for=\"(p, i) in img.p\"\n                            class=\"card-text\" > {{ p }}\n                        </p>\n                    </template>\n                </span>\n\n\n            </div>\n        </template>\n\n\n        <span v-if=\"isInContent('head')\" class=\"card-title\"> {{ card.head }} </span>\n\n        <template v-if=\"isInContent('divider')\">\n            <div class=\"divider\"></div>\n        </template>\n\n\n        <template v-if=\"isInContent('p')\">\n            <p\n                v-for=\"(p, i) in card.p\"\n                class=\"card-text\" > {{ p }}\n            </p>\n        </template>\n\n\n\n\n        <div v-if=\"isInContent('btn')\">\n            <a v-for=\"(btn,i) in card.btn\"\n                :key=\"'btn'+ i\"\n                class=\"btn btn-lg bg-goldenRod\" :href=\"btn.link\" role=\"button\">\n                {{ btn.text }}\n            </a>\n        </div>\n\n\n    </div>\n    "
+}); //
+
+Vue.component("col-vue", {
+  props: {
+    col: {
+      type: Object,
+      required: true
+    }
+  },
+  computed: {// getColWidht(){
+    //     return section.col.widht.xl;
+    // }
+  },
+  template: "\n    <div>\n        <template v-if=\"col.content.type === 'card'\">\n            <card-vue\n                :card=\"col.content\"\n                :class=\"col.content.type\"\n\n            ></card-vue>\n        </template>\n\n        <template v-if=\"col.content.type === 'div-flex'\">\n            <item-flex\n                :items=\"col.content\"\n                :class=\"col.content.type\"\n            ></item-flex>\n        </template>\n    </div>\n    "
 }); // ****** ROOT *********
 
 var app = new Vue({
@@ -227,6 +543,12 @@ var app = new Vue({
     updateScroll: function updateScroll() {
       this.scrollWindow = window.scrollY;
       console.log(event);
+    },
+    getSections: function getSections() {
+      return store.state.mainDate.sections;
+    },
+    getCol: function getCol() {
+      return store.state.mainDate.sections;
     }
   }
 });

@@ -9,10 +9,39 @@ body {
   font: 12px Arial, "Montserrat", sans-serif;
 }
 
-.row {
-  margin: 0;
+@-webkit-keyframes flipInY {
+  0% {
+    transform: perspective(400px) rotateY(90deg);
+    opacity: 0;
+  }
+  40% {
+    transform: perspective(400px) rotateY(-10deg);
+  }
+  70% {
+    transform: perspective(400px) rotateY(10deg);
+  }
+  100% {
+    transform: perspective(400px) rotateY(0deg);
+    opacity: 0.7;
+  }
 }
 
+@keyframes flipInY {
+  0% {
+    transform: perspective(400px) rotateY(90deg);
+    opacity: 0;
+  }
+  40% {
+    transform: perspective(400px) rotateY(-10deg);
+  }
+  70% {
+    transform: perspective(400px) rotateY(10deg);
+  }
+  100% {
+    transform: perspective(400px) rotateY(0deg);
+    opacity: 0.7;
+  }
+}
 .text-white {
   color: #ffffff;
 }
@@ -23,6 +52,10 @@ body {
 
 .text-black {
   color: #000000;
+}
+
+.bg-goldenRod {
+  background-color: #fcd66c;
 }
 
 .mb-0 {
@@ -40,6 +73,10 @@ body {
 .divider {
   border: 2px solid #fcd66c;
   width: 200px;
+}
+
+.font-oldstyle-nums {
+  font-variant-numeric: oldstyle-nums;
 }
 
 nav.navbar {
@@ -116,8 +153,6 @@ nav.navbar .navbar-collapse li.nav-item:hover a.nav-link {
 nav.navbar .navbar-collapse .btn {
   padding-left: 30px;
   padding-right: 30px;
-  border-radius: 0;
-  font-size: 16px;
   background-color: #fcd66c;
   color: #ffffff;
 }
@@ -195,43 +230,291 @@ header {
   height: 100vh;
 }
 
+#section2 {
+  padding-left: 100px;
+  padding-right: 100px;
+  color: #ffffff;
+  background-image: url("../img/home-content-bg-2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+#section2 .card {
+  text-align: center;
+}
+#section2 .card .card-title {
+  font-size: 36px;
+}
+#section2 .card .card-text:last-child {
+  font-size: 24px;
+}
+#section2 .card .divider {
+  margin-top: 16px;
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#section2 div[class^=col-] {
+  margin: 100px 0;
+}
+#section2 div[class^=col-]:first-child {
+  display: flex;
+  justify-content: center;
+}
+#section2 div[class^=col-]:last-child .div-data {
+  float: left;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+#section2 div[class^=col-]:last-child .div-data i {
+  font-size: 60px;
+  color: #fcd66c;
+}
+#section2 div[class^=col-]:last-child .div-data .head-card {
+  font-size: 26px;
+  line-height: 100px;
+}
+#section2 div[class^=col-]:last-child .div-data .text-card {
+  padding: inherit;
+  font-size: 16px;
+  line-height: 40px;
+  color: #bababc;
+}
+#section2 div[class^=col-]:last-child .div-data .btn {
+  width: 175px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin: auto;
+  background-color: #fcd66c;
+  color: #ffffff;
+}
+#section2 div[class^=col-]:last-child .div-data .btn:hover {
+  background-color: #000000;
+}
+
+#section3 {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+#section3 .card {
+  text-align: center;
+}
+#section3 .card .card-title {
+  font-size: 36px;
+}
+#section3 .card .card-text:last-child {
+  font-size: 24px;
+}
+#section3 .card .divider {
+  margin-top: 16px;
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#section3 div[class^=col-] {
+  margin: 50px 0;
+}
+#section3 div[class^=col-]:first-child {
+  display: flex;
+  justify-content: center;
+}
+#section3 div[class^=col-]:last-child {
+  display: flex;
+}
+#section3 div[class^=col-]:last-child .card {
+  float: left;
+  display: flex;
+  flex-direction: row;
+}
+#section3 div[class^=col-]:last-child .card .cont-img {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+#section3 div[class^=col-]:last-child .card .cont-img .card-title {
+  height: 100%;
+  width: 100%;
+  margin: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 25px;
+  color: #ffffff;
+  background-color: #fcd66c;
+  opacity: 0;
+  z-index: 2;
+}
+#section3 div[class^=col-]:last-child .card .cont-img img {
+  max-width: 100%;
+}
+
+#section4 .row {
+  margin: 0;
+}
+#section4 div[class^=col-] {
+  margin: 50px 0;
+  padding: 0;
+}
+#section4 div[class^=col-] A.btn {
+  width: 100%;
+  height: 160px;
+  margin: auto;
+  line-height: 150px;
+  vertical-align: middle;
+  font-size: 21px;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #ea6862;
+}
+#section4 div[class^=col-] A.btn:hover {
+  background-color: #8c9aa5;
+}
+
+#section5 {
+  justify-content: center;
+}
+#section5 .card .card-title {
+  color: #fcd66c;
+}
+#section5 .card .card-text {
+  font-size: 16px;
+  color: #bababc;
+}
+#section5 .card .divider {
+  margin-top: 16px;
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#section5 div[class^=col-]:first-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-size: 36px;
+}
+#section5 div[class^=col-]:first-child .card {
+  float: left;
+}
+#section5 div[class^=col-]:first-child .card .card-title {
+  color: #000000;
+}
+#section5 div[class^=col-]:first-child .card .card-text {
+  font-size: 24px;
+}
+#section5 div[class^=col-] {
+  margin: 30px 0;
+  font-size: 20px;
+  float: float;
+}
+#section5 div[class^=col-]:nth-child(2) .card {
+  display: flex;
+  align-items: space-between;
+  border: 1px solid #bababc;
+}
+#section5 div[class^=col-]:nth-child(2) .card .cont-img {
+  display: flex;
+  flex-direction: column;
+}
+#section5 div[class^=col-]:nth-child(2) .card img {
+  margin-bottom: 10px;
+}
+#section5 div[class^=col-]:nth-child(2) .card .card-title, #section5 div[class^=col-]:nth-child(2) .card .card-text {
+  padding-left: 20px;
+}
+#section5 div[class^=col-]:nth-child(2) .card .card-title {
+  color: #fcd66c;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#section5 div[class^=col-]:nth-child(2) .card .card-text {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: auto;
+}
+#section5 div[class^=col-]:nth-child(3) {
+  display: flex;
+  font-size: 20px;
+}
+#section5 div[class^=col-]:nth-child(3) .card {
+  float: left;
+  display: flex;
+  flex-direction: column;
+}
+#section5 div[class^=col-]:nth-child(3) .card .cont-img {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 30px;
+}
+#section5 div[class^=col-]:nth-child(3) .card .cont-img img {
+  max-width: 170px;
+  padding-right: 20px;
+}
+#section5 div[class^=col-]:nth-child(3) .card .cont-img .card-title {
+  color: #fcd66c;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#section5 div[class^=col-]:nth-child(3) .card .cont-img .card-text {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: auto;
+}
+#section5 div[class^=col-]:nth-child(4) a.btn {
+  color: #ffffff;
+  width: 100%;
+  padding: 15px;
+  background-color: #ea6862;
+  margin: auto o;
+}
+
 main {
   position: relative;
   z-index: 1;
   background-color: white;
 }
-main section#everyMomentCounts div[class^=col-]:first-child {
-  padding: 0;
+main .container-fluid {
+  margin-top: 50px;
 }
-main section#everyMomentCounts div[class^=col-]:first-child .card.everyMoment {
+main section#section1 div[class^=col-]:first-child {
+  padding: 0;
+  float: left;
+}
+main section#section1 div[class^=col-]:first-child .card {
   border: 0;
   padding: 100px;
 }
-main section#everyMomentCounts div[class^=col-]:first-child .card.everyMoment .card-title {
+main section#section1 div[class^=col-]:first-child .card .card-title {
   padding-top: 20px;
   padding-bottom: 20px;
   font-weight: 400;
   font-size: 36px;
 }
-main section#everyMomentCounts div[class^=col-]:first-child .card.everyMoment .card-text {
+main section#section1 div[class^=col-]:first-child .card .card-text {
   padding-top: 20px;
   padding-bottom: 20px;
   font-size: 16px;
 }
-main section#everyMomentCounts div[class^=col-]:first-child .card.everyMoment a.btn {
+main section#section1 div[class^=col-]:first-child .card a.btn {
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 30px;
   padding-right: 30px;
   color: #ffffff;
 }
-main section#everyMomentCounts div[class^=col-]:first-child .card.everyMoment a.btn:hover {
+main section#section1 div[class^=col-]:first-child .card a.btn:hover {
   background-color: #000000;
 }
-main section#everyMomentCounts div[class^=col-]:last-child {
+main section#section1 div[class^=col-]:last-child {
   padding: 0;
+  float: left;
 }
-main section#everyMomentCounts div[class^=col-]:last-child .card {
+main section#section1 div[class^=col-]:last-child div.world {
   border: 0;
   height: 100%;
   background-image: url("../img/home-content-bg-1.jpg");
@@ -239,24 +522,30 @@ main section#everyMomentCounts div[class^=col-]:last-child .card {
   background-size: cover;
   background-position: center;
 }
-main section#everyMomentCounts div[class^=col-]:last-child .card .card-body {
+main section#section1 div[class^=col-]:last-child div.world .cont-div-data {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  height: 100%;
+  padding: 100px;
 }
-main section#everyMomentCounts div[class^=col-]:last-child .card .card-body .card-data {
-  text-align: center;
-  height: 100px;
+main section#section1 div[class^=col-]:last-child div.world .cont-div-data .div-data {
+  height: 100%;
   display: flex;
   flex-direction: column;
+  text-align: center;
+  justify-content: center;
   color: #ffffff;
 }
-main section#everyMomentCounts div[class^=col-]:last-child .card .card-body .card-data i[class^=fa] {
+main section#section1 div[class^=col-]:last-child div.world .cont-div-data .div-data i[class^=fa] {
   font-size: 50px;
 }
-main section#everyMomentCounts div[class^=col-]:last-child .card .card-body .card-data div.head-data {
+main section#section1 div[class^=col-]:last-child div.world .cont-div-data .div-data span.data-numbers {
+  padding-left: 10px;
+  font-size: 60px;
+}
+main section#section1 div[class^=col-]:last-child div.world .cont-div-data .div-data p.head-data {
   font-size: 24px;
+  line-height: 40px;
 }
 .jumbotron {
   height: 100vh;
@@ -323,4 +612,18 @@ main section#everyMomentCounts div[class^=col-]:last-child .card .card-body .car
 .jumbotron .container .btn-group .cont-btn .btn2:hover {
   border: 2px solid #ffffff;
   color: #ffffff;
+}
+
+.btn {
+  border-radius: 0;
+  font-size: 16px;
+}
+
+.card {
+  background-color: inherit;
+  border: none;
+}
+
+p {
+  margin-bottom: 10px;
 }

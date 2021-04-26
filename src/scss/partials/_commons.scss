@@ -11,6 +11,12 @@
     color: $black;
 }
 
+// bg-color
+.bg-goldenRod{
+    background-color: #fcd66c;
+}
+
+
 // Margin
 .mb-0{
     margin-bottom: 0;
@@ -31,4 +37,9 @@
 .divider{
     border: 2px solid #fcd66c;
     width: 200px;
+}
+
+
+.font-oldstyle-nums{
+    font-variant-numeric: oldstyle-nums;
 }

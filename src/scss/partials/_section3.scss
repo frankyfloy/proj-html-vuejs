@@ -1,0 +1,82 @@
+#section3{
+    @include px(100px);
+    .card{
+        text-align: center;
+        .card-title{
+            font-size: 36px;
+        }
+        .card-text:last-child {
+            font-size: 24px;
+        }
+        .divider{
+            margin-top: 16px;
+            margin-bottom: 40px;
+            @include mx-auto;
+        }
+    }
+
+
+    div[class^="col-"]{
+        margin: 50px 0;
+    }
+    div[class^="col-"]:first-child{
+        display: flex;
+        justify-content: center;
+    }
+
+    div[class^="col-"]:last-child{
+        display: flex;
+
+        .card{
+            float: left;
+            display: flex;
+            flex-direction: row;
+
+            .cont-img{
+                @include px(15px);
+
+                .card-title {
+                    height: 100%;
+                    width: 100%;
+                    margin: inherit;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    font-size: 25px;
+                    color: $white;
+                    background-color: #fcd66c;
+                    opacity: 0;
+                    z-index: 2;
+
+                }
+
+                img{
+                    max-width: 100%;
+                }
+            }
+
+
+
+            // .card:hover{
+            //     & > .card-title {
+            //             animation:  flipInY; /* referring directly to the animation's @keyframe declaration */
+            //             animation-duration: 0.7s; /* don't forget to set a duration! */
+            //             animation-fill-mode: forwards;
+            //         }
+            //     }
+            // }
+
+
+
+        }
+
+
+
+
+
+
+    }
+}
